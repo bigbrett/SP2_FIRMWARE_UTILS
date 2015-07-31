@@ -1,0 +1,47 @@
+#!/usr/bin/perl -wl
+use strict; 
+use warnings;
+no warnings 'uninitialized';
+
+# get file names 
+my ($csvfile, $headerfile) = @ARGV;
+my @langs = ("english","french","german","italian","spanish");
+my (%french, %german, %italian, %spanish); 
+
+open (my $fh,"<", $csvfile) or die "Couldn't read '$csvfile': $!";
+while ( <$fh> ) 
+{ 
+    # split $_ by commas 
+    my @fields = split /,/; 
+    
+    # store each comma-separated string in correct language array
+    if (($. != 1) and ($#fields+1 == 5)) 
+    {
+        $french{ $fields[0] } = $fields[1]; #french is second column
+        $german{ $fields[0] } = $fields[2]; #german is third column
+        $italian{ $fields[0] } = $fields[3]; #italian is fourth column
+        $spanish{ $fields[0] } = $fields[4]; #spanish is fifth column
+    }
+}
+close $fh or die "couldn't close '$csvfile' : $!"; #close file 
+
+
+open(my $fh1, "<", $headerfile) or die "Couldn't read '$headerfile': $!";
+while ( <$fh1> ) 
+{
+    # if within bounds of string array declaration, replace 
+    if ( /^static const sp2_string_struct_t string_array\[NUM_STRINGS\] =/.../end string_array/ ) 
+    {
+        if (/$langs[0]/i and (/"(.*?)"/i) )
+        {
+           print "WORD = $1";
+           $french{$1} and print "\t$french{$1}" or print "\t--";
+           $german{$1} and print "\t$german{$1}" or print "\t--";
+           $italian{$1} and print "\t$italian{$1}" or print "\t--";
+           $spanish{$1} and print "\t$spanish{$1}" or print "\t--";
+        }   
+    }
+}
+close $fh1, $headerfile or die "Couldn't close '$headerfile': $!";
+
+
