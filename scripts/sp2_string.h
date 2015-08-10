@@ -3,7 +3,7 @@
 
 #include "common_headers.h"
 
-/* Enumerated language type */ 
+/* Enumerated language type */
 typedef enum
 {
   ENGLISH,
@@ -12,7 +12,7 @@ typedef enum
   ITALIAN,
   SPANISH,
 
-  NUM_LANGUAGES  // holds number of languages 
+  NUM_LANGUAGES  // holds number of languages
 } SP2_LANGUAGE_T;
 
 
@@ -20,14 +20,14 @@ typedef enum
  * Enumerated string type
  * Strings are listed by the UI screen state in which they are used (State_of_Screen)
  */
-typedef enum 
+typedef enum
 {
-    /* Header/Footer text */ 
+    /* Header/Footer text */
     str_SELECT,
     str_BACK,
     str_NEXT,
     str_MENU,
-    str_OPTIONS, 
+    str_OPTIONS,
     str_DELETE,
     str_DISCARD,
     str_DETAIL,
@@ -56,7 +56,7 @@ typedef enum
     str_SETTINGS_SEL,
     str_CONFIG_SETTINGS,
     str_SETTINGS_MENU,
-    
+
    /* File/Folder deletion prompts */
     str_DELETE_TEST,
     str_DELETE_ALL,
@@ -66,15 +66,15 @@ typedef enum
     str_DELETE_ALL_IN_FOLDER_PROMPT,
     str_DELETING_FOLDER,
 
-    /* User testing strings */ 
-    str_ALIGN_PROBE, 
+    /* User testing strings */
+    str_ALIGN_PROBE,
     str_PRESS,
-    str_TO_BEGIN, 
+    str_TO_BEGIN,
     str_CALIBRATING,
     str_COLLECTING_DATA,
 
-    /* Calibration and loading screens */ 
-    str_COMPASS_CALIBRATION,	
+    /* Calibration and loading screens */
+    str_COMPASS_CALIBRATION,
     str_GPS_LOCK_ACQUIRED,
     str_GPS_INFORMATION,
     str_ACQUIRED,
@@ -82,9 +82,9 @@ typedef enum
     str_ENTER,
     str_MANUAL_ENTRY,
     str_ASPECT,
-    
 
-    /* Test errors, warning messages, and user feedback */ 
+
+    /* Test errors, warning messages, and user feedback */
     str_ERROR,
     str_REMOVE_SDCARD,
     str_PLEASE_INSERT,
@@ -123,8 +123,8 @@ typedef enum
     str_FAVORITE_LIMIT_OF,
     str_FAV_NUM_REACHED,
     str_EDITING_DISABLED,
-    //TODO 
-    
+    //TODO
+
 
     /* UI_SETTINGS menu items */
     str_DATE_AND_TIME,
@@ -157,8 +157,8 @@ typedef enum
     str_TO_SEND_THE_FILE,
     str_NO_TESTS_AVAILABLE,
     str_TO_SYNC,
-    
-    
+
+
     /* UI_DATE_AND_TIME */
     str_DATE,
     str_TIME_FORMAT,
@@ -167,7 +167,7 @@ typedef enum
     str_ZONE,
     str_DAYLIGHT_SAVINGS_TIME_1,
     str_DAYLIGHT_SAVINGS_TIME_2,
-    
+
     /* Time zone lists */
 	str_ADELAIDE,
 	str_ALMATY,
@@ -222,8 +222,8 @@ typedef enum
 	str_US_PACIFIC,
 	str_VLADIVOSTOK,
 	str_WINDHOEK,
-    
-    /* Secret Sensor output menu */ 
+
+    /* Secret Sensor output menu */
 	str_SENSOR_OUTPUT,
     str_PRESSURE,
     str_DEPTH,
@@ -232,7 +232,7 @@ typedef enum
     str_ROS_2,
     str_TILT,
 
-  NUM_STRINGS 
+  NUM_STRINGS
 } SP2_STRING_T;
 
 
@@ -251,1699 +251,1699 @@ typedef struct
 /* Multi-language string array structure */
 static const sp2_string_struct_t string_array[NUM_STRINGS] =
 {
-    /* str_SELECT */  
+    /* str_SELECT */
 	{ {6,3,3,3,3},
-      {		"SELECT",	// English 
+      {		"SELECT",	// English
     		"FOO",  	// French
-    		"BAR",      // German 
-    		"NOO",      // Italian 
-    		"BAZ"      	// Spanish
+    		"BAR",      // German
+    		"NOO",      // Italian
+    		""      	// Spanish
     } },
 
-    /* str_BACK */ 
+    /* str_BACK */
     { {4,3,3,3,3},
-      {     "BACK",	    // English 
+      {     "BACK",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
+            ""      // Spanish
     } },
 
-    /* str_NEXT */  
+    /* str_NEXT */
 	{ {4,3,3,3,3},
-      {		"NEXT",	// English 
+      {		"NEXT",	// English
     		"FOO",  	// French
-    		"BAR",      // German 
-    		"NOO",      // Italian 
-    		"BAZ"      // Spanish
+    		"BAR",      // German
+    		"NOO",      // Italian
+    		""      // Spanish
     } },
 
-    /* str_MENU */ 
+    /* str_MENU */
     { {4,3,3,3,3},
-      {     "MENU",	    // English 
+      {     "MENU",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_OPTIONS */
     { {7,3,3,3,3},
-      {     "OPTIONS",	// English 
+      {     "OPTIONS",	// English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
-    /* str_DELETE */ 
+    /* str_DELETE */
     { {6,3,3,3,3},
-      {     "DELETE",	  // English 
+      {     "DELETE",	  // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
-    /* str_DISCARD */ 
+    /* str_DISCARD */
     { {7,3,3,3,3},
-      {     "DISCARD",	  // English 
+      {     "DISCARD",	  // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_DETAIL */
     { {6,3,3,3,3},
-      {     "DETAIL",	  // English 
+      {     "DETAIL",	  // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_GPS */
     { {3,3,3,3,3},
-      {     "GPS",	    // English 
+      {     "GPS",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_GPS_COLON */
     { {4,3,3,3,3},
-      {     "GPS:",	    // English 
+      {     "GPS:",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_SLOPE */
     { {5,3,3,3,3},
-      {     "SLOPE",    // English 
+      {     "SLOPE",    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_FAVORITE */
     { {8,3,3,3,3},
-      {     "FAVORITE",	// English 
+      {     "FAVORITE",	// English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_CANCEL */
     { {6,3,3,3,3},
-      {     "CANCEL",	  // English 
+      {     "CANCEL",	  // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_START */
 	{ {5,3,3,3,3},
       {     "START", // English
 			"FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
+            ""      // Spanish
 		} },
 
-	/* str_RETRY */ 
+	/* str_RETRY */
 	{ {5,3,3,3,3},
       {     "RETRY", // ENGLISH
 			"FOO",	 // French
 			"BAR",   // GERMAN
 			"NOO", 	// Italian
-			"BAZ"	 // Spanish
+			""	 // Spanish
 		} },
-		
-    /* str_ON */ 
+
+    /* str_ON */
     { {2,3,3,3,3},
-      {     "ON",		    // English 
+      {     "ON",		    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_OFF */
     { {3,3,3,3,3},
-      {     "OFF",	    // English 
+      {     "OFF",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_OK */
     { {2,3,3,3,3},
-      {     "OK",	    // English 
+      {     "OK",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_NOT_APPLICABLE */
     { {3,3,3,3,3},
-      {     "N/A",	    // English 
+      {     "N/A",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_SAVE*/
     { {4,3,3,3,3},
-      {     "SAVE",	    // English 
+      {     "SAVE",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 /*#######################################################################*
- *  UI_MAINMENU_LIST menu items                                          * 
+ *  UI_MAINMENU_LIST menu items                                          *
  *#######################################################################*/
     /* str_NEW_TEST */
     { {8,3,3,3,3},
-      {     "NEW TEST",	// English 
+      {     "NEW TEST",	// English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_SNOW_PROFILES */
     { {13,3,3,3,3},
-      {     "SNOW PROFILES",	// English 
+      {     "SNOW PROFILES",	// English
             "FOO",	    			// French
-            "BAR",      			// German 
+            "BAR",      			// German
             "NOO",      			// Italian
-            "BAZ"      			// Spanish
-		} }, 
+            ""      			// Spanish
+		} },
 
     /* str_FAVORITES */
     { {15,3,3,3,3},
-      {     "FAVORITES", 	// English 
+      {     "FAVORITES", 	// English
             "FOO",	    	// French
-            "BAR",      	// German 
+            "BAR",      	// German
             "NOO",      	// Italian
-            "BAZ"      	// Spanish
-		} }, 
+            ""      	// Spanish
+		} },
 
     /* str_SETTINGS */
     { {8,3,3,3,3},
-      {     "SETTINGS",	// English 
+      {     "SETTINGS",	// English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
-		
-	/* str_MASS_STORAGE */ 
+
+	/* str_MASS_STORAGE */
     { {12,3,3,3,3},
-      {     "MASS STORAGE",	// English 
+      {     "MASS STORAGE",	// English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
-	/* str_BLUETOOTH_TRANSFER */ 
+	/* str_BLUETOOTH_TRANSFER */
     { {18,3,3,3,3},
-      {     "BLUETOOTH TRANSFER",	// English 
+      {     "BLUETOOTH TRANSFER",	// English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
-           
+            ""      // Spanish
+		} },
+
     /* str_NEW_SNOW_PROFILE */
     { {16,3,3,3,3},
-      {     "NEW SNOW PROFILE",	// English 
+      {     "NEW SNOW PROFILE",	// English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_SLOPE_MEASUREMENT*/
     { {17,3,3,3,3},
-      {     "SLOPE MEASUREMENT",	// English 
+      {     "SLOPE MEASUREMENT",	// English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_SETTINGS_SEL */
     { {12,3,3,3,3},
-      {     "SETTINGS SEL",	    // English 
+      {     "SETTINGS SEL",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_CONFIG_SETTINGS*/
     { {15,3,3,3,3},
-      {     "CONFIG SETTINGS",	    // English 
+      {     "CONFIG SETTINGS",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_SETTINGS_MENU */
     { {13,3,3,3,3},
-      {     "SETTINGS MENU",	    // English 
+      {     "SETTINGS MENU",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 /*#######################################################################*
- *  File/Folder deletion prompts 
+ *  File/Folder deletion prompts
  *#######################################################################*/
     /* str_DELETE_TEST */
     { {12,3,3,3,3},
-      {     "DELETE TEST?",	// English 
+      {     "DELETE TEST?",	// English
             "FOO",	    	// French
-            "BAR",      	// German 
+            "BAR",      	// German
             "NOO",      	// Italian
-            "BAZ"      	// Spanish
-		} }, 
+            ""      	// Spanish
+		} },
 
     /* str_DELETE_ALL */
     { {10,3,3,3,3},
-      {     "DELETE ALL",	// English 
+      {     "DELETE ALL",	// English
             "FOO",	    	// French
-            "BAR",      	// German 
+            "BAR",      	// German
             "NOO",      	// Italian
-            "BAZ"      	// Spanish
-		} }, 
+            ""      	// Spanish
+		} },
 
     /* str_DELETE_ALL_TESTS */
     { {16,3,3,3,3},
-      {     "DELETE ALL TESTS",	// English 
+      {     "DELETE ALL TESTS",	// English
             "FOO",	    	// French
-            "BAR",      	// German 
+            "BAR",      	// German
             "NOO",      	// Italian
-            "BAZ"      	// Spanish
-		} }, 
+            ""      	// Spanish
+		} },
 
     /* str_IN_THIS_FOLDER*/
     { {15,3,3,3,3},
-      {     "IN THIS FOLDER?",	// English 
+      {     "IN THIS FOLDER?",	// English
             "FOO",	    	// French
-            "BAR",      	// German 
+            "BAR",      	// German
             "NOO",      	// Italian
-            "BAZ"      	// Spanish
-		} }, 
+            ""      	// Spanish
+		} },
 
 
     /* str_DELETE_FILE_PROMPT */
     { {12,3,3,3,3},
-      {     "DELETE FILE?",	    // English 
+      {     "DELETE FILE?",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
     /* str_DELETE_ALL_IN_FOLDER_PROMPT */
     { {21,3,3,3,3},
-      {     "DELETE ALL IN FOLDER?",	    // English 
+      {     "DELETE ALL IN FOLDER?",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_DELETING_FOLDER_PROMPT */
     { {18,3,3,3,3},
-      {     "DELETING FOLDER...",	    // English 
+      {     "DELETING FOLDER...",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 
 /*#######################################################################*
  * USER TESTING STRINGS
  *#######################################################################*/
-	/* str_ALIGN_PROBE */ 
+	/* str_ALIGN_PROBE */
 	{ {6,3,3,3,3},
       {     "ALIGN PROBE", 	// english
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-	} },  
-	
-	/* str_PRESS */ 
+            ""      // Spanish
+	} },
+
+	/* str_PRESS */
 	{ {5,3,3,3,3},
       {     "PRESS", // ENGLISH
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
+            ""      // Spanish
 	} },
-	
-	/* str_TO_BEGIN*/ 
+
+	/* str_TO_BEGIN*/
 	{ {8,3,3,3,3},
       {     "TO BEGIN", // ENGLISH
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
+            ""      // Spanish
 	} },
-	
+
 	/* str_CALIBRATING */
 	{ {13,3,3,3,3},
       {     "  CALIBRATING", // ENGLISH
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
+            ""      // Spanish
 	} },
 
-	/* str_COLLECTING_DATA */ 
+	/* str_COLLECTING_DATA */
 	{ {8,3,3,3,3},
       {     "COLLECTING DATA", // ENGLISH
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
+            ""      // Spanish
 	} },
 
 /*#######################################################################*
- *  Calibration screens                                                  * 
- *#######################################################################*/	
+ *  Calibration screens                                                  *
+ *#######################################################################*/
 	/* str_COMPASS_CALIBRATION */
 	{ {19,3,3,3,3},
-      {     "COMPASS CALIBRATION",  // English 
+      {     "COMPASS CALIBRATION",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
 	/* str_GPS_LOCK_ACQUIRED */
 	{ {18,3,3,3,3},
-      {     "GPS LOCK ACQUIRED!",  // English 
+      {     "GPS LOCK ACQUIRED!",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
-	
+
 	/* str_GPS_INFORMATION */
 	{ {15,3,3,3,3},
-      {     "GPS INFORMATION",  // English 
+      {     "GPS INFORMATION",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
-	
+
 	/* str_ACQUIRED*/
 	{ {9,3,3,3,3},
-      {     "ACQUIRED!",  // English 
+      {     "ACQUIRED!",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
-	
+
 	/* str_PLEASE_ENTER_THE */
 	{ {16,3,3,3,3},
-      {     "PLEASE ENTER THE",  // English 
+      {     "PLEASE ENTER THE",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
 	/* str_ENTER */
 	{ {5,3,3,3,3},
-      {     "ENTER",  // English 
+      {     "ENTER",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
 	/* str_MANUAL_ENTRY */
 	{ {12,3,3,3,3},
-      {     "MANUAL ENTRY",  // English 
+      {     "MANUAL ENTRY",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
 	/* str_PLEASE_ENTER_THE */
 	{ {6,3,3,3,3},
-      {     "ASPECT",  // English 
+      {     "ASPECT",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
 
 /*#######################################################################*
- *  Test errors, warning messages, and user feedback                     *  
- *#######################################################################*/ 
+ *  Test errors, warning messages, and user feedback                     *
+ *#######################################################################*/
 	/* str_ERROR */
 	{ {5,3,3,3,3},
-      {     "ERROR",  // English 
+      {     "ERROR",  // English
 	        "FOO",	    			// French
-	        "BAR",      			// German 
+	        "BAR",      			// German
 	        "NOO",      			// Italian
-	        "BAZ"      			// Spanish
-	} }, 
+	        ""      			// Spanish
+	} },
 
 	/* str_REMOVE_SDCARD*/
 	{ {13,3,3,3,3},
-      {     "REMOVE SDCARD",  // English 
+      {     "REMOVE SDCARD",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
     /* str_PLEASE_INSERT */
 	{ {13,3,3,3,3},
-      {     "PLEASE INSERT",  // English 
+      {     "PLEASE INSERT",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
     /* str_A_VALID_SDCARD */
 	{ {14,3,3,3,3},
-      {     "A VALID SDCARD",  // English 
+      {     "A VALID SDCARD",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
     /* str_TO_THE_DEVICE */
 	{ {13,3,3,3,3},
-      {     "TO THE DEVICE",  // English 
+      {     "TO THE DEVICE",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
-	} },    
+		    ""      			// Spanish
+	} },
 
 	/* str_REBOOTING*/
 	{ {9,3,3,3,3},
-      {     "REBOOTING",  // English 
+      {     "REBOOTING",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
 
 	/* str_REBOOTING_ELIPSES*/
 	{ {12,3,3,3,3},
-      {     "REBOOTING...",  // English 
+      {     "REBOOTING...",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
 	/* str_REBOOT*/
 	{ {6,3,3,3,3},
-      {     "REBOOT",  // English 
+      {     "REBOOT",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
-	
+
 	/* str_SW_REBOOT*/
 	{ {9,3,3,3,3},
-      {     "SW REBOOT",  // English 
+      {     "SW REBOOT",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
-	
-	/* str_FIRMWARE_UPDATE */ 
+
+	/* str_FIRMWARE_UPDATE */
 	{ {15,3,3,3,3},
-      {     "FIRMWARE UPDATE",  // English 
+      {     "FIRMWARE UPDATE",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
     /* str_FAILED */
 	{ {8,3,3,3,3},
-      {     "  FAILED",  // English 
+      {     "  FAILED",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
     /* str_PLEASE */
 	{ {8,3,3,3,3},
-      {     "  PLEASE",  // English 
+      {     "  PLEASE",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
     /* str_RECONNECT_TO_PC */
 	{ {15,3,3,3,3},
-      {     "RECONNECT TO PC",  // English 
+      {     "RECONNECT TO PC",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
     /* str_AND_TRY_AGAIN */
 	{ {14,3,3,3,3},
-      {     " AND TRY AGAIN",  // English 
+      {     " AND TRY AGAIN",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
 	/* str_NEW_FIRMWARE */
 	{ {12,3,3,3,3},
-      {     "NEW FIRMWARE",  // English 
+      {     "NEW FIRMWARE",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
     /* str_DETECTED */
 	{ {10,3,3,3,3},
-      {     "  DETECTED",  // English 
+      {     "  DETECTED",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
 	/* str_PRESS_SELECT */
 	{ {12,3,3,3,3},
-      {     "PRESS SELECT",  // English 
+      {     "PRESS SELECT",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
 	/* str_TO_REBOOT */
 	{ {11,3,3,3,3},
-      {     "  TO REBOOT",  // English 
+      {     "  TO REBOOT",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
 	/* str_VALIDATING */
 	{ {12,3,3,3,3},
-      {     "  VALIDATING",  // English 
+      {     "  VALIDATING",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
-	} },	    
-	
-	/* str_GRAPH_CUT_AT_PAUSE */ 
-	{ {18,3,3,3,3},
-      {     "GRAPH CUT AT PAUSE",  // English 
-			"FOO",	    			// French
-		    "BAR",      			// German 
-		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
-	
+
+	/* str_GRAPH_CUT_AT_PAUSE */
+	{ {18,3,3,3,3},
+      {     "GRAPH CUT AT PAUSE",  // English
+			"FOO",	    			// French
+		    "BAR",      			// German
+		    "NOO",      			// Italian
+		    ""      			// Spanish
+	} },
+
 	/* str_ARE_YOU_SURE_YOU */
 	{ {16,3,3,3,3},
-      {     "ARE YOU SURE YOU",  // English 
+      {     "ARE YOU SURE YOU",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
 	/* str_WANT_TO_DELETE */
 	{ {14,3,3,3,3},
-      {     "WANT TO DELETE",  // English 
+      {     "WANT TO DELETE",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
 	/* str_WANT_TO_DISCARD */
 	{ {15,3,3,3,3},
-      {     "WANT TO DISCARD",  // English 
+      {     "WANT TO DISCARD",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
-    
+
 	/* str_THIS_TEST */
 	{ {10,3,3,3,3},
-      {     "THIS TEST?",  // English 
+      {     "THIS TEST?",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
    /* str_PROCESSING_DATA */
 	{ {15,3,3,3,3},
-      {     "PROCESSING DATA",  // English 
+      {     "PROCESSING DATA",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
-	
+
 	/* str_PLEASE_WAIT_ELIPSES */
 	{ {14,3,3,3,3},
-      {     "PLEASE WAIT...",  // English 
+      {     "PLEASE WAIT...",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
   /*  str_PLEASE_WAIT */
 	{ {11,3,3,3,3},
-      {     "PLEASE WAIT",  // English 
+      {     "PLEASE WAIT",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
   /*  str_WHILE_READING */
 	{ {13,3,3,3,3},
-      {     "WHILE READING",  // English 
+      {     "WHILE READING",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
   /*  str_THE_RECORD */
 	{ {10,3,3,3,3},
-      {     "THE RECORD",  // English 
+      {     "THE RECORD",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
   /*  str_READING_RECORD */
 	{ {14,3,3,3,3},
-      {     "READING RECORD",  // English 
+      {     "READING RECORD",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
   /*  str_LINK */
 	{ {4,3,3,3,3},
-      {     "LINK",  // English 
+      {     "LINK",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
- 
+
   /*  str_LINK_SNOW_PROFILE */
 	{ {17,3,3,3,3},
-      {     "LINK SNOW PROFILE",  // English 
+      {     "LINK SNOW PROFILE",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
- 
+
   /*  str_ENTER_PASSWORD */
 	{ {14,3,3,3,3},
-      {     "ENTER PASSWORD",  // English 
+      {     "ENTER PASSWORD",  // English
 			"FOO",	    			// French
-		    "BAR",      			// German 
+		    "BAR",      			// German
 		    "NOO",      			// Italian
-		    "BAZ"      			// Spanish
+		    ""      			// Spanish
 	} },
 
-	
-    /* str_DAILY_TEST_LIMIT */  
+
+    /* str_DAILY_TEST_LIMIT */
 	{ {16,3,3,3,3},
-      {		"DAILY TEST LIMIT",	// English 
+      {		"DAILY TEST LIMIT",	// English
     		"FOO",  	// French
-    		"BAR",      // German 
-    		"NOO",      // Italian 
-    		"BAZ"      // Spanish
+    		"BAR",      // German
+    		"NOO",      // Italian
+    		""      // Spanish
     } },
 
-    /* str_OF_DT_NUM_REACHED */  
+    /* str_OF_DT_NUM_REACHED */
 	{ {17,3,3,3,3},
-      {		"OF 254 REACHED!!!",	// English 
+      {		"OF 254 REACHED!!!",	// English
     		"FOO",  	// French
-    		"BAR",      // German 
-    		"NOO",      // Italian 
-    		"BAZ"      // Spanish
+    		"BAR",      // German
+    		"NOO",      // Italian
+    		""      // Spanish
     } },
 
-    /* str_FAVORITE_LIMIT_OF*/  
+    /* str_FAVORITE_LIMIT_OF*/
 	{ {17,3,3,3,3},
-      {		"FAVORITE LIMIT OF",	// English 
+      {		"FAVORITE LIMIT OF",	// English
     		"FOO",  	// French
-    		"BAR",      // German 
-    		"NOO",      // Italian 
-    		"BAZ"      // Spanish
+    		"BAR",      // German
+    		"NOO",      // Italian
+    		""      // Spanish
     } },
 
-    /* str_FAV_NUM_REACHED */  
+    /* str_FAV_NUM_REACHED */
 	{ {11,3,3,3,3},
-      {		"64 REACHED!",	// English 
+      {		"64 REACHED!",	// English
     		"FOO",  	// French
-    		"BAR",      // German 
-    		"NOO",      // Italian 
-    		"BAZ"      // Spanish
+    		"BAR",      // German
+    		"NOO",      // Italian
+    		""      // Spanish
     } },
 
-    /* str_EDITING_DISABLED */  
+    /* str_EDITING_DISABLED */
 	{ {16,3,3,3,3},
-      {		"EDITING DISABLED ",	// English 
+      {		"EDITING DISABLED ",	// English
     		"FOO",  	// French
-    		"BAR",      // German 
-    		"NOO",      // Italian 
-    		"BAZ"      // Spanish
+    		"BAR",      // German
+    		"NOO",      // Italian
+    		""      // Spanish
     } },
-     //TODO 
+     //TODO
 
-     //TODO 
+     //TODO
 
 /*#######################################################################*
- * UI_SETTINGS menu items  
- *#######################################################################*/ 
+ * UI_SETTINGS menu items
+ *#######################################################################*/
     /* str_DATE_AND_TIME */
     { {13,3,3,3,3},
-      {     "DATE AND TIME",  // English 
+      {     "DATE AND TIME",  // English
             "FOO",	    			// French
-            "BAR",      			// German 
+            "BAR",      			// German
             "NOO",      			// Italian
-            "BAZ"      			// Spanish
-		} }, 
+            ""      			// Spanish
+		} },
 
     /* str_BLUETOOTH */
     { {9,3,3,3,3},
-      {     "BLUETOOTH",// English 
+      {     "BLUETOOTH",// English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_INITIALIZING_BLUETOOTH */
     { {22,3,3,3,3},
-      {     "INITIALIZING BLUETOOTH",  // English 
+      {     "INITIALIZING BLUETOOTH",  // English
             "FOO",	    						   // French
-            "BAR",      						   // German 
+            "BAR",      						   // German
             "NOO",      						   // Italian
-            "BAZ"      						   // Spanish
-		} }, 
+            ""      						   // Spanish
+		} },
 
     /* str_GRAPH_DETAIL */
     { {12,3,3,3,3},
-      {     "GRAPH DETAIL",	    // English 
+      {     "GRAPH DETAIL",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
-		
+            ""      				// Spanish
+		} },
+
 	/* str_GRAPH_DETAIL_0 */
     { {14,3,3,3,3},
-      {     "GRAPH DETAIL 0",	    // English 
+      {     "GRAPH DETAIL 0",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
     /* str_GRAPH_DETAIL 1*/
     { {14,3,3,3,3},
-      {     "GRAPH DETAIL 1",	    // English 
+      {     "GRAPH DETAIL 1",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
     /* str_GRAPH_DETAIL 2 */
     { {14,3,3,3,3},
-      {     "GRAPH DETAIL 2",	    // English 
+      {     "GRAPH DETAIL 2",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
     /* str_GRAPH_DETAIL 3*/
     { {14,3,3,3,3},
-      {     "GRAPH DETAIL 3",	    // English 
+      {     "GRAPH DETAIL 3",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
     /* str_GRAPH_DETAIL 4*/
     { {14,3,3,3,3},
-      {     "GRAPH DETAIL 4",	    // English 
+      {     "GRAPH DETAIL 4",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
     /* str_LANGUAGE */
     { {8,3,3,3,3},
-      {     "LANGUAGE",	    // English 
+      {     "LANGUAGE",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
-    
+            ""      				// Spanish
+		} },
+
     /* str_TESTS_REQUIRE_SLOPE */
     { {14,3,3,3,3},
-      {     "REQUIRE SLOPE",	    // English 
+      {     "REQUIRE SLOPE",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
-    
+            ""      				// Spanish
+		} },
+
 	/* str_ABOUT_DEVICE */
     { {12,3,3,3,3},
-      {     "ABOUT DEVICE",	    // English 
+      {     "ABOUT DEVICE",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 /*#######################################################################*
 * Bluetooth main content 												 *
-/*#######################################################################*/     
+/*#######################################################################*/
 	/* str_INITIALIZING */
     { {12,3,3,3,3},
-      {     "INITIALIZING",	    // English 
+      {     "INITIALIZING",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_THE_DEVICE_IS_NOW */
     { {17,3,3,3,3},
-      {     "THE DEVICE IS NOW",	    // English 
+      {     "THE DEVICE IS NOW",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_DISCOVERABLE */
     { {12,3,3,3,3},
-      {     "DISCOVERABLE.",	    // English 
+      {     "DISCOVERABLE.",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_PLEASE_CONNECT */
     { {14,3,3,3,3},
-      {     "PLEASE CONNECT",	    // English 
+      {     "PLEASE CONNECT",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_YOUR_DEVICE */
     { {11,3,3,3,3},
-      {     "YOUR DEVICE",	    // English 
+      {     "YOUR DEVICE",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_CONNECTED */
     { {9,3,3,3,3},
-      {     "CONNECTED",	    // English 
+      {     "CONNECTED",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_PREPARING_TO_SYNC */
     { {17,3,3,3,3},
-      {     "PREPARING TO SYNC",	    // English 
+      {     "PREPARING TO SYNC",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_SYNCING */
     { {7,3,3,3,3},
-      {     "SYNCING",	    // English 
+      {     "SYNCING",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
-		
+            ""      				// Spanish
+		} },
+
 	/* str_SYNC_COMPLETE */
     { {14,3,3,3,3},
-      {     "SYNC COMPLETE!",	    // English 
+      {     "SYNC COMPLETE!",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_SYNC_FAILED */
     { {12,3,3,3,3},
-      {     "SYNC FAILED!",	    // English 
+      {     "SYNC FAILED!",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_PLEASE_TRY_AGAIN */
     { {16,3,3,3,3},
-      {     "PLEASE TRY AGAIN",	    // English 
+      {     "PLEASE TRY AGAIN",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_PLEASE_TURN */
     { {11,3,3,3,3},
-      {     "PLEASE TURN",	    // English 
+      {     "PLEASE TURN",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_ON_BLUETOOTH */
     { {12,3,3,3,3},
-      {     "ON BLUETOOTH",	    // English 
+      {     "ON BLUETOOTH",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_TO_SEND_THE_FILE */
     { {16,3,3,3,3},
-      {     "TO SEND THE FILE",	    // English 
+      {     "TO SEND THE FILE",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_NO_TESTS_AVAILABLE */
     { {18,3,3,3,3},
-      {     "NO TESTS AVAILABLE",	    // English 
+      {     "NO TESTS AVAILABLE",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
+            ""      				// Spanish
+		} },
 
 	/* str_TO_SYNC */
     { {8,3,3,3,3},
-      {     "TO SYNC!",	    // English 
+      {     "TO SYNC!",	    // English
             "FOO",	    				// French
-            "BAR",      				// German 
+            "BAR",      				// German
             "NOO",      				// Italian
-            "BAZ"      				// Spanish
-		} }, 
-		
-		
+            ""      				// Spanish
+		} },
+
+
 /*#######################################################################*
  * UI_DATE_AND_TIME
- *#######################################################################*/     
+ *#######################################################################*/
  /* str_DATE */
     { {4,3,3,3,3},
-      {     "DATE",	    // English 
+      {     "DATE",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
-		
+            ""      // Spanish
+		} },
+
     /* str_TIME_FORMAT */
     { {11,3,3,3,3},
-      {     "TIME FORMAT",	    // English 
+      {     "TIME FORMAT",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
-		
+            ""      // Spanish
+		} },
+
     /* str_TIME_ZONE */
     { {9,3,3,3,3},
-      {     "TIME ZONE",	    // English 
+      {     "TIME ZONE",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_TIME */
     { {4,3,3,3,3},
-      {     "TIME",	    // English 
+      {     "TIME",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_ZONE */
     { {4,3,3,3,3},
-      {     "ZONE",	    // English 
+      {     "ZONE",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_DAYLIGHT_SAVINGS_TIME_1 */
     { {8,3,3,3,3},
-      {     "DAYLIGHT",	    // English 
+      {     "DAYLIGHT",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_DAYLIGHT_SAVINGS_TIME_2 */
     { {12,3,3,3,3},
-      {     "SAVINGS TIME",	    // English 
+      {     "SAVINGS TIME",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
-    
+            ""      // Spanish
+		} },
+
 /*#######################################################################*
  * TIME ZONE lists                                                       *
- *#######################################################################*/     
+ *#######################################################################*/
  /* str_ADELAIDE */
     { {8,3,3,3,3},
-      {     "ADELAIDE",	    // English 
+      {     "ADELAIDE",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_ALMATY */
     { {6,3,3,3,3},
-      {     "ALMATY",	    // English 
+      {     "ALMATY",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_AUCKLAND */
     { {8,3,3,3,3},
-      {     "AUCKLAND",	    // English 
+      {     "AUCKLAND",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_BANGKOK */
     { {7,3,3,3,3},
-      {     "BANGKOK",	    // English 
+      {     "BANGKOK",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_BOMBAY */
     { {6,3,3,3,3},
-      {     "BOMBAY",	    // English 
+      {     "BOMBAY",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_BRASILIA */
     { {8,3,3,3,3},
-      {     "BRASILIA",	    // English 
+      {     "BRASILIA",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_BRISBANE */
     { {8,3,3,3,3},
-      {     "BRISBANE",	    // English 
+      {     "BRISBANE",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_CAIRO */
     { {5,3,3,3,3},
-      {     "CAIRO",	  // English 
+      {     "CAIRO",	  // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_CAPE_TOWN */
     { {9,3,3,3,3},
-      {     "CAPE TOWN",	    // English 
+      {     "CAPE TOWN",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_CAPE_VERDE */
     { {10,3,3,3,3},
-      {     "CAPE VERDE",	    // English 
+      {     "CAPE VERDE",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_CHITA */
     { {5,3,3,3,3},
-      {     "CHITA",	    // English 
+      {     "CHITA",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_DARWIN */
     { {6,3,3,3,3},
-      {     "DARWIN",	    // English 
+      {     "DARWIN",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_EKATERINBURG */
     { {12,3,3,3,3},
-      {     "EKATERINBURG",	    // English 
+      {     "EKATERINBURG",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_EU_CENTRAL */
     { {10,3,3,3,3},
-      {     "EU-CENTRAL",	    // English 
+      {     "EU-CENTRAL",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
-		
+            ""      // Spanish
+		} },
+
 	/* str_EU_EASTERN */
     { {10,3,3,3,3},
-      {     "EU-EASTERN",	    // English 
+      {     "EU-EASTERN",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_EU_WESTERN */
     { {10,3,3,3,3},
-      {     "EU_WESTERN",	    // English 
+      {     "EU_WESTERN",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
-	/* str_FIJI */ 
+	/* str_FIJI */
     { {4,3,3,3,3},
-      {     "FIJI",	    // English 
+      {     "FIJI",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_HONG_KONG */
     { {9,3,3,3,3},
-      {     "HONG KONG",	    // English 
+      {     "HONG KONG",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_ICELAND */
     { {7,3,3,3,3},
-      {     "ICELAND",	    // English 
+      {     "ICELAND",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_ISLAMABAD */
     { {9,3,3,3,3},
-      {     "ISLAMABAD",	    // English 
+      {     "ISLAMABAD",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_JAKARTA */
     { {7,3,3,3,3},
-      {     "JAKARTA",	    // English 
+      {     "JAKARTA",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
-		
+            ""      // Spanish
+		} },
+
 	/* str_KABUL */
     { {5,3,3,3,3},
-      {     "KABUL",	    // English 
+      {     "KABUL",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_KALININGRAD */
     { {11,3,3,3,3},
-      {     "KALININGRAD",	    // English 
+      {     "KALININGRAD",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
-		
+            ""      // Spanish
+		} },
+
 	/* str_KATHMANDU */
     { {9,3,3,3,3},
-      {     "KATHMANDU",	    // English 
+      {     "KATHMANDU",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_KRASNOYARSK */
     { {11,3,3,3,3},
-      {     "KRASNOYARSK",	    // English 
+      {     "KRASNOYARSK",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_LAGOS */
     { {5,3,3,3,3},
-      {     "LAGOS",	    // English 
+      {     "LAGOS",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_MAGADAN */
     { {7,3,3,3,3},
-      {     "MAGADAN",	    // English 
+      {     "MAGADAN",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_MEX_CENTRAL */
     { {11,3,3,3,3},
-      {     "MEX-CENTRAL",	    // English 
+      {     "MEX-CENTRAL",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_MEX_MOUNTAIN */
     { {12,3,3,3,3},
-      {     "MEX-MOUNTAIN",	    // English 
+      {     "MEX-MOUNTAIN",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
-		
+            ""      // Spanish
+		} },
+
 	/* str_MEX_PACIFIC */
     { {11,3,3,3,3},
-      {     "MEX-PACIFIC",	    // English 
+      {     "MEX-PACIFIC",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_MOSCOW */
     { {6,3,3,3,3},
-      {     "MOSCOW",	    // English 
+      {     "MOSCOW",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_MUSCAT */
     { {6,3,3,3,3},
-      {     "MUSCAT",	    // English 
+      {     "MUSCAT",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_NEWFOUNDLAND */
     { {12,3,3,3,3},
-      {     "NEWFOUNDLAND",	    // English 
+      {     "NEWFOUNDLAND",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_NOVOSIBIRSK */
     { {11,3,3,3,3},
-      {     "NOVOSIBIRSK",	    // English 
+      {     "NOVOSIBIRSK",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_PERTH */
     { {5,3,3,3,3},
-      {     "PERTH",	    // English 
+      {     "PERTH",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_PETROPAVLOVSK */
     { {14,3,3,3,3},
-      {     "PETROPAVLOVSK",	    // English 
+      {     "PETROPAVLOVSK",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_RIYADH */
     { {6,3,3,3,3},
-      {     "RIYADH",	    // English 
+      {     "RIYADH",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
-	/* str_SAMARA */ 
+	/* str_SAMARA */
     { {6,3,3,3,3},
-      {     "SAMARA",	    // English 
+      {     "SAMARA",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_SAMOA */
     { {5,3,3,3,3},
-      {     "SAMOA",	    // English 
+      {     "SAMOA",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_SYDNEY */
     { {6,3,3,3,3},
-      {     "SYDNEY",	    // English 
+      {     "SYDNEY",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_TASMANIA */
     { {8,3,3,3,3},
-      {     "TASMANA",	    // English 
+      {     "TASMANA",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_TEHRAN */
     { {6,3,3,3,3},
-      {     "TEHRAN",	    // English 
+      {     "TEHRAN",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_TOKYO */
     { {5,3,3,3,3},
-      {     "TOKYO",	    // English 
+      {     "TOKYO",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
-	/* str_US_ALASKA */ 
+	/* str_US_ALASKA */
     { {6,3,3,3,3},
-      {     "US-ALASKA",	    // English 
+      {     "US-ALASKA",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_US_ARIZONA */
     { {10,3,3,3,3},
-      {     "US-ARIZONA",	    // English 
+      {     "US-ARIZONA",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_US_ATLANTIC */
     { {11,3,3,3,3},
-      {     "US-ATLANTIC",	    // English 
+      {     "US-ATLANTIC",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_US_CENTRAL */
     { {10,3,3,3,3},
-      {     "US-CENTRAL",	    // English 
+      {     "US-CENTRAL",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_US_EASTERN */
     { {10,3,3,3,3},
-      {     "US-EASTERN",	    // English 
+      {     "US-EASTERN",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_US_HAWAII */
     { {9,3,3,3,3},
-      {     "US-HAWAII",	    // English 
+      {     "US-HAWAII",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_US_MOUNTAIN */
     { {11,3,3,3,3},
-      {     "US-MOUNTAIN",	    // English 
+      {     "US-MOUNTAIN",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
-	
+            ""      // Spanish
+		} },
+
 	/* str_US_PACIFIC */
     { {10,3,3,3,3},
-      {     "US-PACIFIC",	    // English 
+      {     "US-PACIFIC",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_VLADIVOSTOK */
     { {11,3,3,3,3},
-      {     "VLADIVOSTOK",	    // English 
+      {     "VLADIVOSTOK",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 	/* str_WINDHOEK */
     { {8,3,3,3,3},
-      {     "WINDHOEK",	    // English 
+      {     "WINDHOEK",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 /*#######################################################################*
  * Secret Sensor output menu                                             *
  *#######################################################################*/
     /* str_SENSOR_OUTPUT*/
     { {13,3,3,3,3},
-      {     "SENSOR OUTPUT",	    // English 
+      {     "SENSOR OUTPUT",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_PRESSURE */
     { {9,3,3,3,3},
-      {     "PRESSURE:",	    // English 
+      {     "PRESSURE:",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_DEPTH */
     { {6,3,3,3,3},
-      {     "DEPTH:",	    // English 
+      {     "DEPTH:",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_EYE */
     { {4,3,3,3,3},
-      {     "EYE:",	    // English 
+      {     "EYE:",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
 
     /* str_ROS_1 */
     { {6,3,3,3,3},
-      {     "ROS 1:",	    // English 
+      {     "ROS 1:",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_ROS_2 */
     { {6,3,3,3,3},
-      {     "ROS 2:",	    // English 
+      {     "ROS 2:",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 
     /* str_TILT */
     { {5,3,3,3,3},
-      {     "TILT:",	    // English 
+      {     "TILT:",	    // English
             "FOO",	    // French
-            "BAR",      // German 
+            "BAR",      // German
             "NOO",      // Italian
-            "BAZ"      // Spanish
-		} }, 
+            ""      // Spanish
+		} },
 }; // end string_array[]
 
 
