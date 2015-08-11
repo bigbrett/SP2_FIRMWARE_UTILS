@@ -1,4 +1,25 @@
 #!/usr/bin/perl
+#=========================================================================
+#
+#         FILE:  update_languages.pl
+#
+#        USAGE:  ./update_languages.pl <CSV_FILE.csv> <HEADER_FILE.h>
+#
+#  DESCRIPTION:  This script parses a CSV file containing translated
+#                strings, and updates the strings in the C data structure
+#                to match the CSV file
+#
+#      OPTIONS:  ---
+# REQUIREMENTS:  ---
+#         BUGS:  ---
+#        NOTES:  ---
+#       AUTHOR:  Brett Nicholas
+#      COMPANY:  Avatech
+#      VERSION:  1.0
+#      CREATED:  08/10/2015
+#     REVISION:  1
+#=========================================================================
+
 use strict;
 use warnings;
 no warnings 'uninitialized';
@@ -14,9 +35,8 @@ my $key;
 
 system("dos2unix $headerfile $csvfile");    # get rid of DOS-style line endings with BASH system call to dos2unix program
 
+
 open (my $fh_csv,'<', $csvfile) or die "Couldn't read '$csvfile': $!";      # open csv file for reading
-
-
 while ( <$fh_csv> ) # parse file line by line
 {
 
@@ -35,8 +55,8 @@ while ( <$fh_csv> ) # parse file line by line
         $spanish{ $fields[0] } = $fields[4];    #spanish is fifth column
     }
 }
-
 close $fh_csv or die "couldn't close '$csvfile' : $!"; #close file
+
 
 open (my $fh_header, '<', $headerfile) or die "Couldn't read '$headerfile': $!"; # open header file for reading
 open (my $fh_tempfile, '>', $tempfile) or die "Couldn't create '$tempfile': $!"; # open temporary file for writing
