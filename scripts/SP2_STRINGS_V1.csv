@@ -1,15 +1,15 @@
 English,French,German,Italian,Spanish
 SELECT,,,,Escoger
 BACK,,,,Regresar
-NEXT,,,,PrÃ³ximo
-MENU,,,,MenÃº
+NEXT,,,,Próximo
+MENU,,,,Menú
 OPTIONS,,,,Opciones
 DELETE,,,,Borrar
 DISCARD,,,,Desechar
 DETAIL,,,,Detalle
 GPS,,,,GPS
 GPS:,,,,GPS:
-SLOPE,,,,InclinaciÃ³n
+SLOPE,,,,Inclinación
 FAVORITE,,,,Favorito
 CANCEL,,,,Cancelar
 START,,,,Iniciar
@@ -25,35 +25,35 @@ FAVORITES,,,,Favoritos
 SETTINGS,,,,Ajustes
 MASS STORAGE,,,,almacenamiento masivo
 BLUETOOTH TRANSFER,,,,Transferencia Bluetooth
-NEW SNOW PROFILE,,,,Nueva perfÃ­l de nieve
-SLOPE MEASUREMENT,,,,mediciÃ³n de inclinaciÃ³n
+NEW SNOW PROFILE,,,,Nueva perfíl de nieve
+SLOPE MEASUREMENT,,,,medición de inclinación
 SETTINGS SEL,,,,?
 CONFIG SETTINGS,,,,configurar los ajustes
-SETTINGS MENU,,,,menÃº de ajustes
-DELETE TEST?,,,,Â¿borrar prueba?
+SETTINGS MENU,,,,menú de ajustes
+DELETE TEST?,,,,¿borrar prueba?
 DELETE ALL,,,,borrar todos
 DELETE ALL TESTS,,,,borrar todas pruebas
-IN THIS FOLDER?,,,,Â¿en esta carpeta?
-DELETE FILE?,,,,Â¿borrar carpeta?
-DELETE ALL IN FOLDER?,,,,Â¿borrar todo en carpeta?
+IN THIS FOLDER?,,,,¿en esta carpeta?
+DELETE FILE?,,,,¿borrar carpeta?
+DELETE ALL IN FOLDER?,,,,¿borrar todo en carpeta?
 DELETING FOLDER...,,,,Borrando carpeta
 ALIGN PROBE,,,,alinear explorador
 PRESS,,,,Presionar
 TO BEGIN,,,,Empezar
-  CALIBRATING,,,,calibraciÃ³n
+  CALIBRATING,,,,calibración
 COLLECTING DATA,,,,colectando datos
-COMPASS CALIBRATION,,,,calibraciÃ³n de la brÃºjula
+COMPASS CALIBRATION,,,,calibración de la brújula
 GPS LOCK ACQUIRED!,,,,GPS adquirido
-GPS INFORMATION,,,,informaciÃ³n GPS
+GPS INFORMATION,,,,información GPS
 ACQUIRED!,,,,Adquirido
 PLEASE ENTER THE,,,,Favor de entrar
 ERROR,,,,Error
 REMOVE SDCARD,,,,Retirar la tarjeta SD
 PLEASE INSERT,,,,Favor de insertar
-A VALID SDCARD,,,,vÃ¡lido tarjeta SD
+A VALID SDCARD,,,,válido tarjeta SD
 TO THE DEVICE,,,,al aparato
 REBOOTING,,,,reinicio
-REBOOTING...,,,,reinicioâ€¦
+REBOOTING...,,,,reinicio…
 REBOOT,,,,reinicio
 SW REBOOT,,,,reinicio de software
 FIRMWARE UPDATE,,,,firmware actualizada
@@ -75,44 +75,44 @@ PROCESSING DATA,,,,Procesando datos
 PLEASE WAIT...,,,,Pro favor espera..
 PLEASE WAIT,,,,Por favor espera
 WHILE READING,,,,(depends on context)
-THE RECORD,,,,el rÃ©cord
-READING RECORD,,,,leyendo rÃ©cord (don't know if this actually works)
+THE RECORD,,,,el récord
+READING RECORD,,,,leyendo récord (don't know if this actually works)
 LINK,,,,enlazar (google translate)
-LINK SNOW PROFILE,,,,enlazar perfÃ­l de nieve
-ENTER PASSWORD,,,,Entrar contraseÃ±a
-DAILY TEST LIMIT,,,,lÃ­mite de pruebas diaria
+LINK SNOW PROFILE,,,,enlazar perfíl de nieve
+ENTER PASSWORD,,,,Entrar contraseña
+DAILY TEST LIMIT,,,,límite de pruebas diaria
 OF 254 REACHED!!!,,,,de 254 alcanzado
-FAVORITE LIMIT OF,,,,LÃ­mite de favoritos
+FAVORITE LIMIT OF,,,,Límite de favoritos
 64 REACHED!,,,,64 alcanzado
-EDITING DISABLED ,,,,editacÃ­on apagado
+EDITING DISABLED ,,,,editacíon apagado
 DATE AND TIME,,,,fecha y hora
 BLUETOOTH,,,,Bluetooth
 INITIALIZING BLUETOOTH,,,,Iniciando Bluetooth
-GRAPH DETAIL,,,,Detalle grÃ¡fico
-GRAPH DETAIL 0,,,,Detalle grÃ¡fico 0
-GRAPH DETAIL 1,,,,Detalle grÃ¡fico 1
-GRAPH DETAIL 2,,,,Detalle grÃ¡fico 2
-GRAPH DETAIL 3,,,,Detalle grÃ¡fico 3
-GRAPH DETAIL 4,,,,Detalle grÃ¡fico 4
+GRAPH DETAIL,,,,Detalle gráfico
+GRAPH DETAIL 0,,,,Detalle gráfico 0
+GRAPH DETAIL 1,,,,Detalle gráfico 1
+GRAPH DETAIL 2,,,,Detalle gráfico 2
+GRAPH DETAIL 3,,,,Detalle gráfico 3
+GRAPH DETAIL 4,,,,Detalle gráfico 4
 LANGUAGE,,,,Idioma
-REQUIRE SLOPE,,,,Exigir inclinaciÃ³n
-ABOUT DEVICE,,,,InformaciÃ³n del aparato
+REQUIRE SLOPE,,,,Exigir inclinación
+ABOUT DEVICE,,,,Información del aparato
 INITIALIZING,,,,Iniciando
 THE DEVICE IS NOW,,,,"El aparato esta (not quite clear, depends on subsequent words)"
 DISCOVERABLE.,,,,Detectable
 PLEASE CONNECT,,,,Favor de conectar
-YOUR DEVICE,,,,TÃº aparato
+YOUR DEVICE,,,,Tú aparato
 CONNECTED,,,,Conectado
 PREPARING TO SYNC,,,,Preparando para sincronizar
 SYNCING,,,,Sincronizando
-SYNC COMPLETE!,,,,Â¡Sincronizado!
-SYNC FAILED!,,,,Â¡SyncronizaciÃ³n fallÃ³!
+SYNC COMPLETE!,,,,¡Sincronizado!
+SYNC FAILED!,,,,¡Syncronización falló!
 PLEASE TRY AGAIN,,,,Favor de intentar otra vez
 PLEASE TURN,,,,"Favor de girar (to literally turn, different if turn on/off)"
 ON BLUETOOTH,,,,"(depends, need clarity)"
 TO SEND THE FILE,,,,para enviar la carpeta
 NO TESTS AVAILABLE,,,,No hay pruebas disponibles
-TO SYNC!,,,,Â¡para sincronizar!
+TO SYNC!,,,,¡para sincronizar!
 DATE,,,,Fecha
 TIME FORMAT,,,,Formato horario
 TIME ZONE,,,,Zona horaria
@@ -120,21 +120,8 @@ TIME,,,,Hora
 ZONE,,,,Zona
 DAYLIGHT,,,,Luz diario
 SAVINGS TIME,,,,"El hoario de verano (needs to be the full thing: Daylight Savings Time, can't split up naturally)"
-SENSOR OUTPUT,,,,producciÃ³n del sensor
-PRESSURE:,,,,presiÃ³n:
+SENSOR OUTPUT,,,,producción del sensor
+PRESSURE:,,,,presión:
 DEPTH:,,,,ancho
 EYE:,,,,Ojo (not sure this is what you mean)
-TILT:,,,,inclinaciÃ³n
-Please keep probe still at the end of the test,,,,favor de mantener el explorador quieto al final de la prueba
-Keep tip above snow during calibration,,,,Favor de mantener la punta superior a la nieve durante calibraciÃ³n
-Probe never entered snow or started in snow. Try brushing off tip,,,,El explorador nunca entrÃ³ la nieve o empezÃ³ en la nieve. Favor de limpiar la punta
-Never started the test? Probe more smoothly,,,,Â¿ComenzÃ³ la prueba? Favor de sondear mas suave
-Wait for calibration: keep probe still until you hear the beep,,,,Calibrando. Favor de mantener el explorador quieto hasta que suene el bip
-Probe more smoothly,,,,Favor de sondear mas suave
-Never started the test? Check the tip.,,,,Â¿ComenzÃ³ la prueba? Favor de limpiar la punta
-Probe faster and keep probe still at the end of the test,,,,Favor de sondear mas rapido y mantener el explorador quieto al final de la prueba
-Wait for calibration: keep probe above the snow until you hear the beep,,,,Calibrando. Favor de mantener el explorador superor a la nieve hasta que suene el bip
-Probe more smoothly, keep still during calibration and at the end of the test,,,,Favor de sondear mas suave y mantener quieto durante calibraciÃ³n al final de la prueba
-Probe more smoothly, and try brushing off the tip,,,,Favor de sondear mas suave y de limpiar la punta
-Probe entered snow too late: probe faster.,,,,El explorador entrÃ³ la nieve tarde. Favor de sondear mas rapido
-Do not pull probe up until after the double beep,,,,Favor de no sacar el explorador hasta que suene el doble bip
+TILT:,,,,inclinación
