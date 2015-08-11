@@ -70,10 +70,10 @@ while ( <$fh_header> )  # parse read-only file line by line
         /$langs[0]/i and /"(.*?)"/i and $key="$1";
 
         # Check that translations exist
-        #$french{$key} or die "ERROR: no French translation for '$key': $!";
-        #$german{$key} or die "ERROR: no German translation for '$key': $!";
-        #$italian{$key} or die "ERROR: no Italian translation for '$key': $!";
-        #$spanish{$key} or die "ERROR: no Spanish translation for '$key': $!";
+        #$french{$key} or die "WARNING: no French translation for '$key': $!";
+        #$german{$key} or die "WARNING: no German translation for '$key': $!";
+        #$italian{$key} or die "WARNING: no Italian translation for '$key': $!";
+        /$langs[4]/i and !($spanish{$key}) and warn "WARNING: no Spanish translation for '$key': $!";
 
         # replace each language string with new hash value  by replacing string between
         # quotation marks with $<language>{$key} on lines that contain "<language>"
