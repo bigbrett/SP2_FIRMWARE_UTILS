@@ -1538,7 +1538,7 @@ static const sp2_string_struct_t string_array[NUM_STRINGS] =
 
 	/* str_EU_WESTERN */
     { {10,3,3,3,3},
-      {     "EU_WESTERN",	    // English 
+      {     "EU-WESTERN",	    // English 
             "FOO",	    // French
             "BAR",      // German 
             "NOO",      // Italian
@@ -1763,7 +1763,7 @@ static const sp2_string_struct_t string_array[NUM_STRINGS] =
 
 	/* str_TASMANIA */
     { {8,3,3,3,3},
-      {     "TASMANA",	    // English 
+      {     "TASMANIA",	    // English 
             "FOO",	    // French
             "BAR",      // German 
             "NOO",      // Italian

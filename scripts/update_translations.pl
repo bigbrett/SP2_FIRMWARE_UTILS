@@ -19,7 +19,7 @@
 #      CREATED:  08/10/2015
 #     REVISION:  1
 #=========================================================================
-
+use 5.014;
 use strict;
 use warnings;
 no warnings 'uninitialized';
@@ -33,7 +33,7 @@ my (%french, %german, %italian, %spanish);  # hash table for each language where
 my @english_keys; # array holding all english strings (keys)
 my $key;
 
-system("dos2unix $headerfile $csvfile");    # get rid of DOS-style line endings with BASH system call to dos2unix program
+#system("dos2unix $headerfile $csvfile");    # get rid of DOS-style line endings with BASH system call to dos2unix program
 
 
 open (my $fh_csv,'<', $csvfile) or die "Couldn't read '$csvfile': $!";      # open csv file for reading
@@ -61,19 +61,26 @@ close $fh_csv or die "couldn't close '$csvfile' : $!"; #close file
 open (my $fh_header, '<', $headerfile) or die "Couldn't read '$headerfile': $!"; # open header file for reading
 open (my $fh_tempfile, '>', $tempfile) or die "Couldn't create '$tempfile': $!"; # open temporary file for writing
 
+my $string_count = 0; # counts number of english strings processed 
+my $error_line = 0; # holds line of first error
+
 while ( <$fh_header> )  # parse read-only file line by line
 {
     # if line falls within language struct declaration
     if ( /^static const sp2_string_struct_t string_array\[NUM_STRINGS\] =/.../end string_array/ )
     {
         #get english translation hash key
-        /$langs[0]/i and /"(.*?)"/i and $key="$1";
+        /$langs[0]/i and /"(.*?)"/i and $key="$1" 
+					and ( ($key eq $english_keys[$string_count]) 
+						or ( ($error_line = $string_count+3) 
+							and die "\nERROR: ENGLISH STRING MISMATCH \n| \($headerfile - line $.\): \"$key\" \n| \($csvfile - line $error_line\): \"$english_keys[$string_count]\"\n >>> program terminated at" ) ) 
+					and $string_count++; 
 
         # Check that translations exist
-        #$french{$key} or die "WARNING: no French translation for '$key': $!";
-        #$german{$key} or die "WARNING: no German translation for '$key': $!";
-        #$italian{$key} or die "WARNING: no Italian translation for '$key': $!";
-        /$langs[4]/i and !($spanish{$key}) and warn "WARNING: no Spanish translation for '$key': $!";
+				#/$langs[1]/i and !$french{$key} and warn "WARNING: no $langs[1] translation for '$key': $!";
+				#/$langs[2]/i and !$german{$key} and warn "WARNING: no $langs[2] translation for '$key': $!";
+        #/$langs[3]/i and !$italian{$key} and warn "WARNING: no $langs[3] translation for '$key': $!";
+        /$langs[4]/i and !($spanish{$key}) and warn "WARNING: no $langs[4] translation for $key";
 
         # replace each language string with new hash value  by replacing string between
         # quotation marks with $<language>{$key} on lines that contain "<language>"
@@ -94,3 +101,4 @@ close $fh_tempfile, $tempfile or die "Couldn't close '$tempfile': $!";
 rename $headerfile, "$headerfile.orig";
 rename $tempfile, $headerfile;
 
+END { print "\n";}
