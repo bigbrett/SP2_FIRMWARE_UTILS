@@ -61,22 +61,31 @@ close $fh_csv or die "couldn't close '$csvfile' : $!"; #close file
 open (my $fh_header, '<', $headerfile) or die "Couldn't read '$headerfile': $!"; # open header file for reading
 open (my $fh_tempfile, '>', $tempfile) or die "Couldn't create '$tempfile': $!"; # open temporary file for writing
 
-print "\nReplacing strings in $headerfile. Changes listed below...\n\n";
+print "\nReplacing strings in $headerfile. Changes listed below...\n";
+print "\nstr_STRING_NAME   (language):   \"old_string\" --> \"new_string\"\n";
+print " --------------------------------------------------------------\n"; 
 
 my $string_count = 0; # counts number of english strings processed 
 my $error_line = 0; # holds line of first error
 my $change_flag = 0; # flag incremented if any string is changed. 0 = no changes
+my $curr_str_name; # holds name of current string
 
 while ( <$fh_header> )  # parse read-only file line by line
 {
     # if line falls within language struct declaration
     if ( /^static const sp2_string_struct_t string_array\[NUM_STRINGS\] =/.../end string_array/ )
     {
-        #get english translation hash key
+				# get current string label	
+				/\/\*.*(str_.*?)\*\//s and $curr_str_name=$1; 
+				
+        # get english translation hash key
         /$langs[0]/i and /"(.*?)"/i and $key="$1" 
 					and ( ($key eq $english_keys[$string_count]) 
 						or ( ($error_line = $string_count+3) 
-							and die "\nERROR: ENGLISH STRING MISMATCH \n| \($headerfile - line $.\): \"$key\" \n| \($csvfile - line $error_line\): \"$english_keys[$string_count]\"\n >>> program terminated at" ) ) 
+							and die "\nERROR: ENGLISH STRING MISMATCH \n
+												| \($headerfile - line $.\): \"$key\" \n
+												| \($csvfile - line $error_line\): \"$english_keys[$string_count]\"\n 
+												>>> program terminated at" ) ) 
 					and $string_count++; 
 
         # Check that translations exist
@@ -92,7 +101,7 @@ while ( <$fh_header> )  # parse read-only file line by line
         # /$langs[3]/i and s/"(.*?)"/"$italian{$key}"/g;
         #/$langs[4]/i and s/"(.*?)"/"$spanish{$key}"/g;
         /$langs[4]/i and s/"(.*?)"/"$spanish{$key}"/g 
-					and (($1 eq $spanish{$key}) or ( print "\t$1 --> $spanish{$key}\n" and $change_flag++ ));
+					and (($1 eq $spanish{$key}) or ( print "  $curr_str_name \($langs[4]\): \"$1\" --> \"$spanish{$key}\"\n" and $change_flag++ ));
     }
     print $fh_tempfile "$_" or die "ERROR: Couldn't write to $tempfile: $!"; # print output to tempfile
 }
@@ -105,7 +114,7 @@ close $fh_tempfile, $tempfile or die "Couldn't close '$tempfile': $!";
 rename $headerfile, "$headerfile.orig";
 rename $tempfile, $headerfile;
 
-($change_flag == 0) and print "  ...\n";
+($change_flag == 0) and print "  ... * no strings updated *\n";
 print "\nLanguage strings successfully updated! Old header saved as  \'$headerfile.orig\' \n";
 
 END { print "\n";}
