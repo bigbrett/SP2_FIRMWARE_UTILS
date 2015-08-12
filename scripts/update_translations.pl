@@ -89,17 +89,19 @@ while ( <$fh_header> )  # parse read-only file line by line
 					and $string_count++; 
 
         # Check that translations exist
-				#/$langs[1]/i and !$french{$key} and warn "WARNING: no $langs[1] translation for '$key': $!";
-				#/$langs[2]/i and !$german{$key} and warn "WARNING: no $langs[2] translation for '$key': $!";
-        #/$langs[3]/i and !$italian{$key} and warn "WARNING: no $langs[3] translation for '$key': $!";
+				/$langs[1]/i and !$french{$key} and warn "WARNING: no $langs[1] translation for $key";
+				/$langs[2]/i and !$german{$key} and warn "WARNING: no $langs[2] translation for $key";
+        /$langs[3]/i and !$italian{$key} and warn "WARNING: no $langs[3] translation for $key";
         /$langs[4]/i and !($spanish{$key}) and warn "WARNING: no $langs[4] translation for $key";
 
         # replace each language string with new hash value  by replacing string between
         # quotation marks with $<language>{$key} on lines that contain "<language>"
-        # /$langs[1]/i and s/"(.*?)"/"$french{$key}"/g;
-        # /$langs[2]/i and s/"(.*?)"/"$german{$key}"/g;
-        # /$langs[3]/i and s/"(.*?)"/"$italian{$key}"/g;
-        #/$langs[4]/i and s/"(.*?)"/"$spanish{$key}"/g;
+        /$langs[1]/i and s/"(.*?)"/"$french{$key}"/g
+					and (($1 eq $french{$key}) or ( print "  $curr_str_name \($langs[1]\): \"$1\" --> \"$french{$key}\"\n" and $change_flag++ ));
+        /$langs[2]/i and s/"(.*?)"/"$german{$key}"/g
+					and (($1 eq $german{$key}) or ( print "  $curr_str_name \($langs[2]\): \"$1\" --> \"$german{$key}\"\n" and $change_flag++ ));
+        /$langs[3]/i and s/"(.*?)"/"$italian{$key}"/g
+					and (($1 eq $italian{$key}) or ( print "  $curr_str_name \($langs[3]\): \"$1\" --> \"$italian{$key}\"\n" and $change_flag++ ));
         /$langs[4]/i and s/"(.*?)"/"$spanish{$key}"/g 
 					and (($1 eq $spanish{$key}) or ( print "  $curr_str_name \($langs[4]\): \"$1\" --> \"$spanish{$key}\"\n" and $change_flag++ ));
     }
