@@ -61,8 +61,11 @@ close $fh_csv or die "couldn't close '$csvfile' : $!"; #close file
 open (my $fh_header, '<', $headerfile) or die "Couldn't read '$headerfile': $!"; # open header file for reading
 open (my $fh_tempfile, '>', $tempfile) or die "Couldn't create '$tempfile': $!"; # open temporary file for writing
 
+print "\nReplacing strings in $headerfile. Changes listed below...\n\n";
+
 my $string_count = 0; # counts number of english strings processed 
 my $error_line = 0; # holds line of first error
+my $change_flag = 0; # flag incremented if any string is changed. 0 = no changes
 
 while ( <$fh_header> )  # parse read-only file line by line
 {
@@ -88,7 +91,8 @@ while ( <$fh_header> )  # parse read-only file line by line
         # /$langs[2]/i and s/"(.*?)"/"$german{$key}"/g;
         # /$langs[3]/i and s/"(.*?)"/"$italian{$key}"/g;
         #/$langs[4]/i and s/"(.*?)"/"$spanish{$key}"/g;
-        /$langs[4]/i and s/"(.*?)"/"$spanish{$key}"/g;
+        /$langs[4]/i and s/"(.*?)"/"$spanish{$key}"/g 
+					and (($1 eq $spanish{$key}) or ( print "\t$1 --> $spanish{$key}\n" and $change_flag++ ));
     }
     print $fh_tempfile "$_" or die "ERROR: Couldn't write to $tempfile: $!"; # print output to tempfile
 }
@@ -100,5 +104,8 @@ close $fh_tempfile, $tempfile or die "Couldn't close '$tempfile': $!";
 # rename tempfile to sp2_string.h and rename original to sp2_string.h.orig
 rename $headerfile, "$headerfile.orig";
 rename $tempfile, $headerfile;
+
+($change_flag == 0) and print "  ...\n";
+print "\nLanguage strings successfully updated! Old header saved as  \'$headerfile.orig\' \n";
 
 END { print "\n";}
