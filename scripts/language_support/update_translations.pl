@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -s
 #==============================================================================================
 #
 #         FILE:  update_languages.pl
@@ -59,7 +59,7 @@
 #                           // ... lots of these
 #                       }; 
 #
-# REQUIREMENTS:  perl version 5.014
+# REQUIREMENTS:  perl version 5.014 or newer 
 #         BUGS:  ---
 #        NOTES:  Copy of old header file stored in <old_header>.h.orig
 #       AUTHOR:  Brett Nicholas
@@ -74,21 +74,30 @@ use warnings;
 no warnings 'uninitialized';
 
 
+our ($convert); # command line option to strip DOS line endings using dos2unix program 
+
+
 (my $csvfile, my $headerfile) = @ARGV;      # get file names from command line
 my $tempfile = "tempfile";                  # name of temporary file
+
 
 my @langs = ("english","french","german","italian","spanish"); # array holding what languages are used
 my (%french, %german, %italian, %spanish);  # hash table for each language where hash key is english string
 my @english_keys; # array holding all english strings (keys)
 my $key;
 
+
 print "OS = $^O\n\n"; # Print operating system 
 # If running linux or mac, get rid of DOS-style line endings with BASH system call to dos2unix program
-if (!($^O =~ /(?:Win|cyg)/)) { 
+if ($convert) { 
 	system('command -v dos2unix >/dev/null 2>&1 || { echo >&2 "I require foo but it\'s not installed.  Aborting."; exit 1; }') == 0 
-			or die "FATAL ERROR: missing program: dos2unix"; # Check to make sure dos2unix is installed 
+			or die "FATAL ERROR: missing program: dos2unix\n\tdos2unix can be downloaded at http://sourceforge.net/projects/dos2unix or can be installed via your OS's native package manager (apt-get, cyg-apt, homebrew, etc. ). "; 
 	system("dos2unix $headerfile $csvfile");    # get rid of DOS-style line endings with BASH system call to dos2unix program
 }
+else {
+    warn "WARNING: File may contain MS-DOS line endings, which could cause unwanted CRLF metacharacters to be inserted into strings (or other formatting issues).\nTo ensure line endings are *NIX compatible, use command-line option [ -convert ] to strip DOS CRLF characters using dos2unix program'\n";
+}
+
 
 open (my $fh_csv,'<', $csvfile) or die "Couldn't read '$csvfile': $!";      # open csv file for reading
 while ( <$fh_csv> ) # parse file line by line
@@ -114,15 +123,18 @@ close $fh_csv or die "couldn't close '$csvfile' : $!"; #close file
 open (my $fh_header, '<', $headerfile) or die "Couldn't read '$headerfile': $!"; # open header file for reading
 open (my $fh_tempfile, '>', $tempfile) or die "Couldn't create '$tempfile': $!"; # open temporary file for writing
 
+
 # print header 
 print "\nReplacing strings in $headerfile. Changes listed below...\n";
 print "\nstr_STRING_NAME   (language):   \"old_string\" --> \"new_string\"\n";
 print " --------------------------------------------------------------\n"; 
 
+
 my $string_count = 0; # counts number of english strings processed 
 my $error_line = 0; # holds line of first error
 my $change_flag = 0; # flag incremented if any string is changed. 0 = no changes
 my $curr_str_name; # holds name of current string
+
 
 while ( <$fh_header> )  # parse read-only file line by line
 {
@@ -161,16 +173,20 @@ while ( <$fh_header> )  # parse read-only file line by line
     print $fh_tempfile "$_" or die "ERROR: Couldn't write to $tempfile: $!"; # print output to tempfile
 }
 
+
 # close files
 close $fh_header, $headerfile or die "Couldn't close '$headerfile': $!";
 close $fh_tempfile, $tempfile or die "Couldn't close '$tempfile': $!";
+
 
 # rename tempfile to sp2_string.h and rename original to sp2_string.h.orig
 rename $headerfile, "$headerfile.orig";
 rename $tempfile, $headerfile;
 
+
 # print success message 
 ($change_flag == 0) and print "  ... * no strings updated *\n"; # no strings updated
 print "\nLanguage strings successfully updated! Old header saved as  \'$headerfile.orig\' \n";
+
 
 END { print "\n";} 
