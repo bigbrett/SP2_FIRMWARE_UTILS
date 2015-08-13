@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-#=========================================================================
+#==============================================================================================
 #
 #         FILE:  update_languages.pl
 #
@@ -10,15 +10,64 @@
 #                to match the CSV file
 #
 #      OPTIONS:  ---
-# REQUIREMENTS:  ---
+#
+#    ARGUMENTS:  1) <CSV_FILE.csv> - CSV file containing translated strings of the format below
+#
+#                       english,french,german,italian,spanish
+#                       hello,bonjour,hallo,ciao,hola
+#                       thanks,merci,danke,grazie,gracias
+#                       ...
+#
+#                2) <HEADER_FILE.h> - C header file containing language string data structure
+#
+#                       /* Enumerated type for string names */ 
+#                       typedef enum {
+#                           str_HELLO,
+#                           str_THANKS,
+#                           // .... lots of these
+#                           NUM_STRINGS 
+#                       } SP2_STRING_T;
+#
+#                   
+#                       /* String data structure declaration */
+#                       typedef struct {
+#                           uint16_t const string_lens[NUM_LANGUAGES]; // Maximum string length 
+#                           const char* language_ptrs[NUM_LANGUAGES]; // Array of string pointers
+#                       } sp2_string_struct_t;
+#
+#
+#                       /* String data structure instantiation */ 
+#                       static const sp2_string_struct_t string_array[NUM_STRINGS] = {
+#                           /* str_HELLO */ 
+#                           { {5,7,5,4,4},
+#                           {   "HELLO",     // ENGLISH
+#                               "BONJOUR",   // FRENCH
+#                               "HALLO",     // GERMAN
+#                               "CIAO",      // ITALIAN 
+#                               "HOLA"       // SPANISH 
+#                           } },
+#
+#                           /* str_THANKS */ 
+#                           { {6,5,5,6,7},
+#                           {   "THANKS",     // ENGLISH
+#                               "MERCI",      // FRENCH
+#                               "DANKE",      // GERMAN
+#                               "GRAZIE",     // ITALIAN 
+#                               "GRACIAS"     // SPANISH 
+#                           } },
+#                           
+#                           // ... lots of these
+#                       }; 
+#
+# REQUIREMENTS:  perl version 5.014
 #         BUGS:  ---
-#        NOTES:  ---
+#        NOTES:  Copy of old header file stored in <old_header>.h.orig
 #       AUTHOR:  Brett Nicholas
 #      COMPANY:  Avatech
 #      VERSION:  1.0
 #      CREATED:  08/10/2015
 #     REVISION:  1
-#=========================================================================
+#==============================================================================================
 use 5.014;
 use strict;
 use warnings;
@@ -81,21 +130,20 @@ while ( <$fh_header> )  # parse read-only file line by line
     if ( /^static const sp2_string_struct_t string_array\[NUM_STRINGS\] =/.../end string_array/ )
     {
 				# get current string label	
-				/\/\*.*(str_.*?)\*\//s and $curr_str_name=$1; 
-				
+        /\/\*.*(str_.*?)\*\//s and $curr_str_name=$1;
+
         # get english translation hash key
-        /$langs[0]/i and /"(.*?)"/i and $key="$1" 
-					and ( ($key eq $english_keys[$string_count]) 
-						or ( ($error_line = $string_count+3) 
-							and die "\nERROR: ENGLISH STRING MISMATCH \n
+        /$langs[0]/i and /"(.*?)"/i and $key="$1" # if line contains "english", $key=string between quotes
+        and ( ($key eq $english_keys[$string_count]) # make sure english string in header matches csv string or DIE 
+                or ( ($error_line = $string_count+3) and die "\nERROR: ENGLISH STRING MISMATCH \n
 												| \($headerfile - line $.\): \"$key\" \n
 												| \($csvfile - line $error_line\): \"$english_keys[$string_count]\"\n 
-												>>> program terminated at" ) ) 
-					and $string_count++; 
+												>>> program terminated at" ) )
+	    and $string_count++;
 
         # Check that translations exist
-				/$langs[1]/i and !$french{$key} and warn "WARNING: no $langs[1] translation for $key";
-				/$langs[2]/i and !$german{$key} and warn "WARNING: no $langs[2] translation for $key";
+        /$langs[1]/i and !$french{$key} and warn "WARNING: no $langs[1] translation for $key";
+        /$langs[2]/i and !$german{$key} and warn "WARNING: no $langs[2] translation for $key";
         /$langs[3]/i and !$italian{$key} and warn "WARNING: no $langs[3] translation for $key";
         /$langs[4]/i and !($spanish{$key}) and warn "WARNING: no $langs[4] translation for $key";
 
@@ -121,7 +169,8 @@ close $fh_tempfile, $tempfile or die "Couldn't close '$tempfile': $!";
 rename $headerfile, "$headerfile.orig";
 rename $tempfile, $headerfile;
 
-($change_flag == 0) and print "  ... * no strings updated *\n";
+# print success message 
+($change_flag == 0) and print "  ... * no strings updated *\n"; # no strings updated
 print "\nLanguage strings successfully updated! Old header saved as  \'$headerfile.orig\' \n";
 
-END { print "\n";}
+END { print "\n";} 
