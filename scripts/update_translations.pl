@@ -33,13 +33,17 @@ my (%french, %german, %italian, %spanish);  # hash table for each language where
 my @english_keys; # array holding all english strings (keys)
 my $key;
 
-#system("dos2unix $headerfile $csvfile");    # get rid of DOS-style line endings with BASH system call to dos2unix program
-
+print "OS = $^O\n\n"; # Print operating system 
+# If running linux or mac, get rid of DOS-style line endings with BASH system call to dos2unix program
+if (!($^O =~ /(?:Win|cyg)/)) { 
+	system('command -v dos2unix >/dev/null 2>&1 || { echo >&2 "I require foo but it\'s not installed.  Aborting."; exit 1; }') == 0 
+			or die "FATAL ERROR: missing program: dos2unix"; # Check to make sure dos2unix is installed 
+	system("dos2unix $headerfile $csvfile");    # get rid of DOS-style line endings with BASH system call to dos2unix program
+}
 
 open (my $fh_csv,'<', $csvfile) or die "Couldn't read '$csvfile': $!";      # open csv file for reading
 while ( <$fh_csv> ) # parse file line by line
 {
-
     # split $_ by commas
     my @fields = split /,/;
 
@@ -61,6 +65,7 @@ close $fh_csv or die "couldn't close '$csvfile' : $!"; #close file
 open (my $fh_header, '<', $headerfile) or die "Couldn't read '$headerfile': $!"; # open header file for reading
 open (my $fh_tempfile, '>', $tempfile) or die "Couldn't create '$tempfile': $!"; # open temporary file for writing
 
+# print header 
 print "\nReplacing strings in $headerfile. Changes listed below...\n";
 print "\nstr_STRING_NAME   (language):   \"old_string\" --> \"new_string\"\n";
 print " --------------------------------------------------------------\n"; 
