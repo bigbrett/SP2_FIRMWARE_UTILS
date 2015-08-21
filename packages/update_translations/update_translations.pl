@@ -9,7 +9,8 @@
 #                strings, and updates the strings in the C data structure
 #                to match the CSV file
 #
-#      OPTIONS:  ---
+#      OPTIONS:  [ -convert ] : invoking this option strips input and output files of DOS-style
+#                 line endings by calling dos2unix
 #
 #    ARGUMENTS:  1) <CSV_FILE.csv> - CSV file containing translated strings of the format below
 #
@@ -27,8 +28,8 @@
 #                           // .... lots of these
 #                           NUM_STRINGS 
 #                       } SP2_STRING_T;
-#
 #                   
+#                       
 #                       /* String data structure declaration */
 #                       typedef struct {
 #                           uint16_t const string_lens[NUM_LANGUAGES]; // Maximum string length 
@@ -85,13 +86,13 @@ my @langs = ("english","french","german","italian","spanish"); # array holding w
 my (%french, %german, %italian, %spanish);  # hash table for each language where hash key is english string
 my @english_keys; # array holding all english strings (keys)
 my $key;
-
+my $convert_success = 0;
 
 print "OS = $^O\n\n"; # Print operating system 
 # If running linux or mac, get rid of DOS-style line endings with BASH system call to dos2unix program
-if ($convert) { 
-	system('command -v dos2unix >/dev/null 2>&1 || { echo >&2 "I require foo but it\'s not installed.  Aborting."; exit 1; }') == 0 
-			or die "FATAL ERROR: missing program: dos2unix\n\tdos2unix can be downloaded at http://sourceforge.net/projects/dos2unix or can be installed via your OS's native package manager (apt-get, cyg-apt, homebrew, etc. ). "; 
+if ($convert) {
+	system('command -v dos2unix >/dev/null 2>&1 || { echo >&2 "I require foo but it\'s not installed.  Aborting."; exit 1; }') == 0
+			or die "FATAL ERROR: missing program: dos2unix\n\tdos2unix can be downloaded at http://sourceforge.net/projects/dos2unix or can be installed via your OS's native package manager (apt-get, apt-cyg, homebrew, etc. ). ";
 	system("dos2unix $headerfile $csvfile");    # get rid of DOS-style line endings with BASH system call to dos2unix program
 }
 else {
@@ -127,7 +128,7 @@ open (my $fh_tempfile, '>', $tempfile) or die "Couldn't create '$tempfile': $!";
 # print header 
 print "\nReplacing strings in $headerfile. Changes listed below...\n";
 print "\nstr_STRING_NAME   (language):   \"old_string\" --> \"new_string\"\n";
-print " --------------------------------------------------------------\n"; 
+print " --------------------------------------------------------------\n";
 
 
 my $string_count = 0; # counts number of english strings processed 
@@ -147,7 +148,9 @@ while ( <$fh_header> )  # parse read-only file line by line
         # get english translation hash key
         /$langs[0]/i and /"(.*?)"/i and $key="$1" # if line contains "english", $key=string between quotes
         and ( ($key eq $english_keys[$string_count]) # make sure english string in header matches csv string or DIE 
-                or ( ($error_line = $string_count+3) and die "\nERROR: ENGLISH STRING MISMATCH \n | \($headerfile - line $.\): \"$key\" \n | \($csvfile - line $error_line\): \"$english_keys[$string_count]\"\n >>> program terminated at" ) )
+                or ( ($error_line = $string_count+3)
+                    and unlink $tempfile
+                    and die "\nERROR: ENGLISH STRING MISMATCH \n | \($headerfile - line $.\): \"$key\" \n | \($csvfile - line $error_line\): \"$english_keys[$string_count]\"\n >>> program terminated at" ) )
 	    and $string_count++;
 
         # Check that translations exist
@@ -178,12 +181,10 @@ close $fh_tempfile, $tempfile or die "Couldn't close '$tempfile': $!";
 
 # rename tempfile to sp2_string.h and rename original to sp2_string.h.orig
 rename $headerfile, "$headerfile.orig";
-rename $tempfile, $headerfile;
+($change_flag == 0) and print "  ... * no strings updated *\n\n"; # no strings updated
+(rename $tempfile, $headerfile) and $convert and system("dos2unix $headerfile"); 
 
+# print success message
+print "\nLanguage strings successfully updated! Old header saved as  \'$headerfile.orig\' \n\n";
 
-# print success message 
-($change_flag == 0) and print "  ... * no strings updated *\n"; # no strings updated
-print "\nLanguage strings successfully updated! Old header saved as  \'$headerfile.orig\' \n";
-
-
-END { print "\n";} 
+END { print "\n";}
