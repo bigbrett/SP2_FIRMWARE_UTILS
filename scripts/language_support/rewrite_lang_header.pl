@@ -42,42 +42,71 @@ while ( <$fh_csv> ) # parse file line by line
     }
 }
 close $fh_csv or die "couldn't close '$csvfile' : $!"; #close file
-
 #print Dumper(\%langHash); 
-
 
 
 #open (my $fh_tempfile, '>', $tempfile) or die "Couldn't create '$tempfile': $!"; # open temporary file for writing
 
 
 # print header 
-print "\nReplacing strings in $headerfile. Changes listed below...\n";
-print "\nstr_STRING_NAME   (language):   \"old_string\" --> \"new_string\"\n";
-print " --------------------------------------------------------------\n"; 
-
-
+print "\nReplacing strings in $headerfile.\n";
 
 open (my $fh_header, '<', $headerfile) or die "Couldn't read '$headerfile': $!"; # open header file for reading
-my $varnamelines = 0; 
-my $start = 0; 
+my ($startlinenum, $endlinenum, $numstringlines) = 0; # start and end line number for screen replacement 
 while ( <$fh_header> )  # parse read-only file line by line
 {
-    /typedef enum \/\*SP2_STRING_T\*\// and $start=$.+2; 
+    # get starting line of string structure declaration
+    /typedef enum \/\*SP2_STRING_T__PERL_START\*\// and $startlinenum=$.+2; 
+
     # count number of lines to be replaced 
-    if (/typedef enum \/\*SP2_STRING_T\*\//../NUM_STRINGS/) {$varnamelines++ and print;} 
-#        /([^,]+)/ and print; 
+    /typedef enum \/\*SP2_STRING_T__PERL_START\*\// .. /NUM_STRINGS/ and $numstringlines++ and $endlinenum=$.; 
+    # /([^,]+)/ and print; 
 }
 close $fh_header, $headerfile or die "Couldn't close '$headerfile': $!";
-print "\nlines in range = $varnamelines\n start=$start";
 
 # replace string variable names in header with those from CSV 
 tie my @flines, 'Tie::File', $headerfile or die "error using Tie to read file <$headerfile>";  
-splice(@flines,$start,$varnamelines-1, join("\n", map {$_ . ","} @str_names) );
-#local $, = "\n";
-#print @flines; 
+#$endlinenum -= 2; 
+print "Replaced lines : ($startlinenum)$flines[$startlinenum] --> ($endlinenum)$flines[$endlinenum]\n";
+
+my @sub_strs = map{"    $_" . ","} @str_names; 
+print @flines[$startlinenum .. $endlinenum-1];
+#splice(@flines,$startlinenum,($endlinenum-$startlinenum), @sub_strs);
 untie @flines;  
 
 
+
+
+sub loadFromCSV {
+    open (my $fh_csv,'<', $csvfile) or die "Couldn't read '$csvfile': $!"; # open csv file for reading
+    while ( <$fh_csv> ) # parse file line by line
+    {
+        # split $_ by commas
+        my @fields = split /,/;
+
+        # Each field of 1st line are stored as langs
+        if ($. == 1) 
+        {
+            @langs=@fields[1 .. $#fields]; # ignore first column 
+            my $numlangs=$#langs;
+            print "@langs";
+        }
+        elsif (($. != 1) and ($#fields+1 == 6))  # if not first line and store each comma-separated string in correct language hash
+        {
+            push(@str_names, $fields[0]); # push string variable names onto array
+            my @curr_strs = @fields[1 .. $#fields]; # store language strings in current string array
+        
+            # store each string in appropriate language hash array 
+            my $i=0; 
+            foreach my $string (@curr_strs) 
+            {
+                chomp $string; # remove possible trailing newline 
+                    ${ $langHash{$langs[$i++]} }{ $fields[0] } = $string; 
+            }
+        }
+    }
+    close $fh_csv or die "couldn't close '$csvfile' : $!"; #close file
+}
 
 =begin GHOSTCODE
     # if line falls within language struct declaration
