@@ -22,21 +22,21 @@ typedef enum
 
 /*
  * Enumerated string type
- * Strings are listed by the UI screen state in which they are used (State_of_Screen)
+ * NOTE: DO NOT EDIT ANY COMMENTS, THEY ARE NECESSARY FOR 
+ *        USE IN PERL STRING REPLACEMENT SCRIPT!!
  */
-typedef enum 
+typedef enum /*SP2_STRING_T__PERL_START*/
 {
-    /* Header/Footer text */ 
     str_SELECT,
     str_BACK,
     str_NEXT,
     str_MENU,
-    str_OPTIONS, 
+    str_OPTIONS,
     str_DELETE,
     str_DISCARD,
     str_DETAIL,
     str_GPS,
-    str_GPS_COLON,
+    str_GPS,
     str_SLOPE,
     str_FAVORITE,
     str_CANCEL,
@@ -45,10 +45,8 @@ typedef enum
     str_ON,
     str_OFF,
     str_OK,
-    str_NOT_APPLICABLE,
+    str_N/A,
     str_SAVE,
-
-    /* UI_MAINMENU_LIST menu items */
     str_NEW_TEST,
     str_SNOW_PROFILES,
     str_FAVORITES,
@@ -60,41 +58,33 @@ typedef enum
     str_SETTINGS_SEL,
     str_CONFIG_SETTINGS,
     str_SETTINGS_MENU,
-    
-   /* File/Folder deletion prompts */
-    str_DELETE_TEST,
+    str_DELETE_TEST?,
     str_DELETE_ALL,
     str_DELETE_ALL_TESTS,
-    str_IN_THIS_FOLDER,
-    str_DELETE_FILE_PROMPT,
-    str_DELETE_ALL_IN_FOLDER_PROMPT,
-    str_DELETING_FOLDER,
-
-    /* User testing strings */ 
-    str_ALIGN_PROBE, 
+    str_IN_THIS_FOLDER?,
+    str_DELETE_FILE?,
+    str_DELETE_ALL_IN_FOLDER?,
+    str_DELETING_FOLDER...,
+    str_ALIGN_PROBE,
     str_PRESS,
-    str_TO_BEGIN, 
+    str_TO_BEGIN,
     str_CALIBRATING,
     str_COLLECTING_DATA,
-
-    /* Calibration and loading screens */ 
-    str_COMPASS_CALIBRATION,	
-    str_GPS_LOCK_ACQUIRED,
+    str_COMPASS_CALIBRATION,
+    str_GPS_LOCK_ACQUIRED!,
     str_GPS_INFORMATION,
-    str_ACQUIRED,
+    str_ACQUIRED!,
     str_PLEASE_ENTER_THE,
     str_ENTER,
     str_MANUAL_ENTRY,
     str_ASPECT,
-
-    /* Test errors, warning messages, and user feedback */ 
     str_ERROR,
     str_REMOVE_SDCARD,
     str_PLEASE_INSERT,
     str_A_VALID_SDCARD,
     str_TO_THE_DEVICE,
     str_REBOOTING,
-    str_REBOOTING_ELIPSES,
+    str_REBOOTING...,
     str_REBOOT,
     str_SW_REBOOT,
     str_FIRMWARE_UPDATE,
@@ -111,9 +101,9 @@ typedef enum
     str_ARE_YOU_SURE_YOU,
     str_WANT_TO_DELETE,
     str_WANT_TO_DISCARD,
-    str_THIS_TEST,
+    str_THIS_TEST?,
     str_PROCESSING_DATA,
-    str_PLEASE_WAIT_ELIPSES,
+    str_PLEASE_WAIT...,
     str_PLEASE_WAIT,
     str_WHILE_READING,
     str_THE_RECORD,
@@ -122,14 +112,10 @@ typedef enum
     str_LINK_SNOW_PROFILE,
     str_ENTER_PASSWORD,
     str_DAILY_TEST_LIMIT,
-    str_OF_DT_NUM_REACHED,
+    str_OF_254_REACHED!!!,
     str_FAVORITE_LIMIT_OF,
-    str_FAV_NUM_REACHED,
-    str_EDITING_DISABLED,
-    //TODO 
-    
-
-    /* UI_SETTINGS menu items */
+    str_64_REACHED!,
+    str_EDITING_DISABLED_,
     str_DATE_AND_TIME,
     str_BLUETOOTH,
     str_INITIALIZING_BLUETOOTH,
@@ -141,101 +127,91 @@ typedef enum
     str_GRAPH_DETAIL_3,
     str_GRAPH_DETAIL_4,
     str_LANGUAGE,
-    str_TESTS_REQUIRE_SLOPE,
+    str_REQUIRE_SLOPE,
     str_ABOUT_DEVICE,
-
-    /* Bluetooth main content */
     str_INITIALIZING,
     str_THE_DEVICE_IS_NOW,
-    str_DISCOVERABLE,
+    str_DISCOVERABLE.,
     str_PLEASE_CONNECT,
     str_YOUR_DEVICE,
     str_CONNECTED,
     str_PREPARING_TO_SYNC,
     str_SYNCING,
-    str_SYNC_COMPLETE,
-    str_SYNC_FAILED,
+    str_SYNC_COMPLETE!,
+    str_SYNC_FAILED!,
     str_PLEASE_TRY_AGAIN,
     str_PLEASE_TURN,
     str_ON_BLUETOOTH,
     str_TO_SEND_THE_FILE,
     str_NO_TESTS_AVAILABLE,
-    str_TO_SYNC,
-    
-    
-    /* UI_DATE_AND_TIME */
+    str_TO_SYNC!,
     str_DATE,
     str_TIME_FORMAT,
     str_TIME_ZONE,
     str_TIME,
     str_ZONE,
-    str_DAYLIGHT_SAVINGS_TIME_1,
-    str_DAYLIGHT_SAVINGS_TIME_2,
-    
-    /* Time zone lists */
-	str_ADELAIDE,
-	str_ALMATY,
-	str_AUCKLAND,
-	str_BANGKOK,
-	str_BOMBAY,
-	str_BRASILIA,
-	str_BRISBANE,
-	str_CAIRO,
-	str_CAPE_TOWN,
-	str_CAPE_VERDE,
-	str_CHITA,
-	str_DARWIN,
-	str_EKATERINBURG,
-	str_EU_CENTRAL,
-	str_EU_EASTERN,
-	str_EU_WESTERN,
-	str_FIJI,
-	str_HONG_KONG,
-	str_ICELAND,
-	str_ISLAMABAD,
-	str_JAKARTA,
-	str_KABUL,
-	str_KALININGRAD,
-	str_KATHMANDU,
-	str_KRASNOYARSK,
-	str_LAGOS,
-	str_MAGADAN,
-	str_MEX_CENTRAL,
-	str_MEX_MOUNTAIN,
-	str_MEX_PACIFIC,
-	str_MOSCOW,
-	str_MUSCAT,
-	str_NEWFOUNDLAND,
-	str_NOVOSIBIRSK,
-	str_PERTH,
-	str_PETROPAVLOVSK,
-	str_RIYADH,
-	str_SAMARA,
-	str_SAMOA,
-	str_SYDNEY,
-	str_TASMANIA,
-	str_TEHRAN,
-	str_TOKYO,
-	str_US_ALASKA,
-	str_US_ARIZONA,
-	str_US_ATLANTIC,
-	str_US_CENTRAL,
-	str_US_EASTERN,
-	str_US_HAWAII,
-	str_US_MOUNTAIN,
-	str_US_PACIFIC,
-	str_VLADIVOSTOK,
-	str_WINDHOEK,
-    
-    /* Secret Sensor output menu */ 
-	str_SENSOR_OUTPUT,
+    str_DAYLIGHT,
+    str_SAVINGS_TIME,
+    str_ADELAIDE,
+    str_ALMATY,
+    str_AUCKLAND,
+    str_BANGKOK,
+    str_BOMBAY,
+    str_BRASILIA,
+    str_BRISBANE,
+    str_CAIRO,
+    str_CAPE_TOWN,
+    str_CAPE_VERDE,
+    str_CHITA,
+    str_DARWIN,
+    str_EKATERINBURG,
+    str_EU-CENTRAL,
+    str_EU-EASTERN,
+    str_EU-WESTERN,
+    str_FIJI,
+    str_HONG_KONG,
+    str_ICELAND,
+    str_ISLAMABAD,
+    str_JAKARTA,
+    str_KABUL,
+    str_KALININGRAD,
+    str_KATHMANDU,
+    str_KRASNOYARSK,
+    str_LAGOS,
+    str_MAGADAN,
+    str_MEX-CENTRAL,
+    str_MEX-MOUNTAIN,
+    str_MEX-PACIFIC,
+    str_MOSCOW,
+    str_MUSCAT,
+    str_NEWFOUNDLAND,
+    str_NOVOSIBIRSK,
+    str_PERTH,
+    str_PETROPAVLOVSK,
+    str_RIYADH,
+    str_SAMARA,
+    str_SAMOA,
+    str_SYDNEY,
+    str_TASMANIA,
+    str_TEHRAN,
+    str_TOKYO,
+    str_US-ALASKA,
+    str_US-ARIZONA,
+    str_US-ATLANTIC,
+    str_US-CENTRAL,
+    str_US-EASTERN,
+    str_US-HAWAII,
+    str_US-MOUNTAIN,
+    str_US-PACIFIC,
+    str_VLADIVOSTOK,
+    str_WINDHOEK,
+    str_SENSOR_OUTPUT,
     str_PRESSURE,
     str_DEPTH,
     str_EYE,
-    str_ROS1,
-    str_ROS2,
+    str_ROS_1,
+    str_ROS_2,
     str_TILT,
-
   NUM_STRINGS 
 } SP2_STRING_T;
 
@@ -255,1710 +231,191 @@ typedef struct
 /* Multi-language string array structure */
 static const sp2_string_struct_t string_array[NUM_STRINGS] =
 {
-    /* str_SELECT */  
-	{ {6,3,3,3,3},
-      {		"SELECT",	// English 
-    		"SELECTIONNER",  	// French
-    		"DEU",      // German 
-    		"ITA",      // Italian 
-    		"ESCOGER"      // Spanish
-    } },
-
-    /* str_BACK */ 
-    { {4,3,3,3,3},
-      {     "BACK",	    // English 
-            "RETOUR",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "REGRESAR"      // Spanish
-    } },
-
-    /* str_NEXT */  
-	{ {4,3,3,3,3},
-      {		"NEXT",	// English 
-    		"SUIVANT",  	// French
-    		"DEU",      // German 
-    		"ITA",      // Italian 
-    		"PROXIMO"      // Spanish
-    } },
-
-    /* str_MENU */ 
-    { {4,3,3,3,3},
-      {     "MENU",	    // English 
-            "MENU",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "MENU"      // Spanish
-		} }, 
-
-    /* str_OPTIONS */
-    { {7,3,3,3,3},
-      {     "OPTIONS",	// English 
-            "OPTIONS",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "OPCIONES"      // Spanish
-		} }, 
-
-    /* str_DELETE */ 
-    { {6,3,3,3,3},
-      {     "DELETE",	  // English 
-            "SUPPRIMER",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "BORRAR"      // Spanish
-		} }, 
-
-    /* str_DISCARD */ 
-    { {7,3,3,3,3},
-      {     "DISCARD",	  // English 
-            "ABANDONNER",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "DESECHAR"      // Spanish
-		} }, 
-
-    /* str_DETAIL */
-    { {6,3,3,3,3},
-      {     "DETAIL",	  // English 
-            "DETAIL",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "DETALLE"      // Spanish
-		} }, 
-
-    /* str_GPS */
-    { {3,3,3,3,3},
-      {     "GPS",	    // English 
-            "GPS",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "GPS"      // Spanish
-		} }, 
-
-    /* str_GPS_COLON */
-    { {4,3,3,3,3},
-      {     "GPS:",	    // English 
-            "GPS:",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "GPS:"      // Spanish
-		} }, 
-
-    /* str_SLOPE */
-    { {5,3,3,3,3},
-      {     "SLOPE",    // English 
-            "PENTE",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "INCLINACION"      // Spanish
-		} }, 
-
-	/* str_FAVORITE */
-    { {8,3,3,3,3},
-      {     "FAVORITE",	// English 
-            "FAVORI",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "FAVORITO"      // Spanish
-		} }, 
-
-    /* str_CANCEL */
-    { {6,3,3,3,3},
-      {     "CANCEL",	  // English 
-            "ANNULER",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "CANCELAR"      // Spanish
-		} }, 
-
-	/* str_START */
-	{ {5,3,3,3,3},
-      {     "START", // English
-			"COMMENCER",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "INICIAR"      // Spanish
-		} },
-
-	/* str_RETRY */ 
-	{ {5,3,3,3,3},
-      {     "RETRY", // ENGLISH
-			"RE-ESSAYER",	 // French
-			"DEU",   // GERMAN
-			"ITA", 	// Italian
-			"REINTENTAR"	 // Spanish
-		} },
-		
-    /* str_ON */ 
-    { {2,3,3,3,3},
-      {     "ON",		    // English 
-            "ALLUME",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "PRENDER"      // Spanish
-		} }, 
-
-    /* str_OFF */
-    { {3,3,3,3,3},
-      {     "OFF",	    // English 
-            "ETEINT",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "APAGAR"      // Spanish
-		} }, 
-
-    /* str_OK */
-    { {2,3,3,3,3},
-      {     "OK",	    // English 
-            "OK",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "OK"      // Spanish
-		} }, 
-
-    /* str_NOT_APPLICABLE */
-    { {3,3,3,3,3},
-      {     "N/A",	    // English 
-            "S.O.",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "N/A"      // Spanish
-		} }, 
-
-    /* str_SAVE*/
-    { {4,3,3,3,3},
-      {     "SAVE",	    // English 
-            "SAUVEGARDER",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "GUARDAR"      // Spanish
-		} }, 
-
-/*#######################################################################*
- *  UI_MAINMENU_LIST menu items                                          * 
- *#######################################################################*/
-    /* str_NEW_TEST */
-    { {8,3,3,3,3},
-      {     "NEW TEST",	// English 
-            "NOUVEAU TEST",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "NUEVA PRUEBA"      // Spanish
-		} }, 
-
-    /* str_SNOW_PROFILES */
-    { {13,3,3,3,3},
-      {     "SNOW PROFILES",	// English 
-            "PROFILS DE NEIGE",	    			// French
-            "DEU",      			// German 
-            "ITA",      			// Italian
-            "PREFILES DE NIEVE"      			// Spanish
-		} }, 
-
-    /* str_FAVORITES */
-    { {15,3,3,3,3},
-      {     "FAVORITES", 	// English 
-            "FAVORIS",	    	// French
-            "DEU",      	// German 
-            "ITA",      	// Italian
-            "FAVORITOS"      	// Spanish
-		} }, 
-
-    /* str_SETTINGS */
-    { {8,3,3,3,3},
-      {     "SETTINGS",	// English 
-            "REGLAGES",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "AJUSTES"      // Spanish
-		} }, 
-
-		
-	/* str_MASS_STORAGE */ 
-    { {12,3,3,3,3},
-      {     "MASS STORAGE",	// English 
-            "STOCKAGE DE MASSE",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "ALMACENAMIENTO MASIVO"      // Spanish
-		} }, 
-
-	/* str_BLUETOOTH_TRANSFER */ 
-    { {18,3,3,3,3},
-      {     "BLUETOOTH TRANSFER",	// English 
-            "TRANSFER BLUETOOTH",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "TRANSFERENCIA BLUETOOTH"      // Spanish
-		} }, 
-           
-    /* str_NEW_SNOW_PROFILE */
-    { {16,3,3,3,3},
-      {     "NEW SNOW PROFILE",	// English 
-            "NOUVEAU PROFIL DE NEIGE",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "NUEVA PERFIL DE NIEVE"      // Spanish
-		} }, 
-
-    /* str_SLOPE_MEASUREMENT*/
-    { {17,3,3,3,3},
-      {     "SLOPE MEASUREMENT",	// English 
-            "MESURE DE PENTE",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "MEDICIîN DE INCLINACION"      // Spanish
-		} }, 
-
-    /* str_SETTINGS_SEL */
-    { {12,3,3,3,3},
-      {     "SETTINGS SEL",	    // English 
-            "SELECTION DES REGLAGES",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "AJUSTES SEL"      // Spanish
-		} }, 
-
-    /* str_CONFIG_SETTINGS*/
-    { {15,3,3,3,3},
-      {     "CONFIG SETTINGS",	    // English 
-            "CONFIGURATION DES REGLAGES",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "CONFIGURAR LOS AJUSTES"      // Spanish
-		} }, 
-
-	/* str_SETTINGS_MENU */
-    { {13,3,3,3,3},
-      {     "SETTINGS MENU",	    // English 
-            "MENU DES REGLAGES",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "MENU DE AJUSTES"      // Spanish
-		} }, 
-
-/*#######################################################################*
- *  File/Folder deletion prompts 
- *#######################################################################*/
-    /* str_DELETE_TEST */
-    { {12,3,3,3,3},
-      {     "DELETE TEST?",	// English 
-            "EFFACER LE TEST?",	    	// French
-            "DEU",      	// German 
-            "ITA",      	// Italian
-            "BORRAR PRUEBA?"      	// Spanish
-		} }, 
-
-    /* str_DELETE_ALL */
-    { {10,3,3,3,3},
-      {     "DELETE ALL",	// English 
-            "TOUT EFFACER",	    	// French
-            "DEU",      	// German 
-            "ITA",      	// Italian
-            "BORRAR TODOS"      	// Spanish
-		} }, 
-
-    /* str_DELETE_ALL_TESTS */
-    { {16,3,3,3,3},
-      {     "DELETE ALL TESTS",	// English 
-            "EFFACER TOUS LES TESTS",	    	// French
-            "DEU",      	// German 
-            "ITA",      	// Italian
-            "BORRAR TODAS PRUEBAS"      	// Spanish
-		} }, 
-
-    /* str_IN_THIS_FOLDER*/
-    { {15,3,3,3,3},
-      {     "IN THIS FOLDER?",	// English 
-            "DANS CE REPERTOIRE?",	    	// French
-            "DEU",      	// German 
-            "ITA",      	// Italian
-            "EN ESTA CARPETA?"      	// Spanish
-		} }, 
-
-
-    /* str_DELETE_FILE_PROMPT */
-    { {12,3,3,3,3},
-      {     "DELETE FILE?",	    // English 
-            "EFFACER LE FICHIER?",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "BORRAR CARPETA?"      				// Spanish
-		} }, 
-
-    /* str_DELETE_ALL_IN_FOLDER_PROMPT */
-    { {21,3,3,3,3},
-      {     "DELETE ALL IN FOLDER?",	    // English 
-            "TOUT EFFACER DANS LE REPERTOIRE?",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "BORRAR TODO EN CARPETA?"      // Spanish
-		} }, 
-
-    /* str_DELETING_FOLDER_PROMPT */
-    { {18,3,3,3,3},
-      {     "DELETING FOLDER...",	    // English 
-            "EFFACEMENT DU REPERTOIREÉ",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "BORRANDO CARPETA"      // Spanish
-		} }, 
-
-
-/*#######################################################################*
- * USER TESTING STRINGS
- *#######################################################################*/
-	/* str_ALIGN_PROBE */ 
-	{ {6,3,3,3,3},
-      {     "ALIGN PROBE", 	// english
-            "ALIGNER LA SONDE",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "ALINEAR EXPLORADOR"      // Spanish
-	} },  
-	
-	/* str_PRESS */ 
-	{ {5,3,3,3,3},
-      {     "PRESS", // ENGLISH
-            "APPUYER",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "PRESIONAR"      // Spanish
-	} },
-	
-	/* str_TO_BEGIN*/ 
-	{ {8,3,3,3,3},
-      {     "TO BEGIN", // ENGLISH
-            "POUR COMMENCER A CALIBRER",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "EMPEZAR"      // Spanish
-	} },
-	
-	/* str_CALIBRATING */
-	{ {13,3,3,3,3},
-      {     "  CALIBRATING", // ENGLISH
-            "  CALIBRAGE",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "  CALIBRACION"      // Spanish
-	} },
-
-	/* str_COLLECTING_DATA */ 
-	{ {8,3,3,3,3},
-      {     "COLLECTING DATA", // ENGLISH
-            "COLLECTION DES DONNEES",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "COLECTANDO DATOS"      // Spanish
-	} },
-
-/*#######################################################################*
- *  Calibration screens                                                  * 
- *#######################################################################*/	
-	/* str_COMPASS_CALIBRATION */
-	{ {19,3,3,3,3},
-      {     "COMPASS CALIBRATION",  // English 
-			"CALIBREMENT DE LA BOUSSOLE",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "CALIBRACION DE LA BRòJULA"      			// Spanish
-	} },
-
-	/* str_GPS_LOCK_ACQUIRED */
-	{ {18,3,3,3,3},
-      {     "GPS LOCK ACQUIRED!",  // English 
-			"SATELLITES GPS ACQUIS",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "GPS ADQUIRIDO"      			// Spanish
-	} },
-	
-	/* str_GPS_INFORMATION */
-	{ {15,3,3,3,3},
-      {     "GPS INFORMATION",  // English 
-			"INFORMATION GPS",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "INFORMACION GPS"      			// Spanish
-	} },
-	
-	/* str_ACQUIRED*/
-	{ {9,3,3,3,3},
-      {     "ACQUIRED!",  // English 
-			"ACQUIS!",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "ADQUIRIDO"      			// Spanish
-	} },
-	
-	/* str_PLEASE_ENTER_THE */
-	{ {16,3,3,3,3},
-      {     "PLEASE ENTER THE",  // English 
-			"SVP ENTRER LE",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "FAVOR DE ENTRAR"      			// Spanish
-	} },
-
-	/* str_ENTER */
-	{ {5,3,3,3,3},
-      {     "ENTER",  // English 
-			"ENTRER ",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "ENTRAR"      			// Spanish
-	} },
-
-	/* str_MANUAL_ENTRY */
-	{ {12,3,3,3,3},
-      {     "MANUAL ENTRY",  // English 
-			"MANUELLE ENTRER",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "ENTRADA MANUAL"      			// Spanish
-	} },
-
-	/* str_ASPECT */
-	{ {6,3,3,3,3},
-      {     "ASPECT",  // English 
-			"ASPECT",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "ASPECTO"      			// Spanish
-	} },
-
-/*#######################################################################*
-/*#######################################################################*
- *  Test errors, warning messages, and user feedback                     *  
- *#######################################################################*/ 
-	/* str_ERROR */
-	{ {5,3,3,3,3},
-      {     "ERROR",  // English 
-	        "ERREUR",	    			// French
-	        "DEU",      			// German 
-	        "ITA",      			// Italian
-	        "ERROR"      			// Spanish
-	} }, 
-
-	/* str_REMOVE_SDCARD*/
-	{ {13,3,3,3,3},
-      {     "REMOVE SDCARD",  // English 
-			"RETIRER LA SDCARD",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "RETIRAR LA TARJETA SD"      			// Spanish
-	} },
-
-    /* str_PLEASE_INSERT */
-	{ {13,3,3,3,3},
-      {     "PLEASE INSERT",  // English 
-			"SVP INSERER",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "FAVOR DE INSERTAR"      			// Spanish
-	} },
-
-    /* str_A_VALID_SDCARD */
-	{ {14,3,3,3,3},
-      {     "A VALID SDCARD",  // English 
-			"UNE SDCARD VALIDE",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "VALIDO TARJETA SD"      			// Spanish
-	} },
-
-    /* str_TO_THE_DEVICE */
-	{ {13,3,3,3,3},
-      {     "TO THE DEVICE",  // English 
-			"DANS LÕAPPAREIL",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "AL APARATO"      			// Spanish
-	} },    
-
-	/* str_REBOOTING*/
-	{ {9,3,3,3,3},
-      {     "REBOOTING",  // English 
-			"REDEMARRAGE",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "REINICIENDO"      			// Spanish
-	} },
-
-
-	/* str_REBOOTING_ELIPSES*/
-	{ {12,3,3,3,3},
-      {     "REBOOTING...",  // English 
-			"REDEMARRAGE...",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "REINICIENDO..."      			// Spanish
-	} },
-
-	/* str_REBOOT*/
-	{ {6,3,3,3,3},
-      {     "REBOOT",  // English 
-			"REDEMARRER",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "REINICIO"      			// Spanish
-	} },
-	
-	/* str_SW_REBOOT*/
-	{ {9,3,3,3,3},
-      {     "SW REBOOT",  // English 
-			"REDEMARRAGE DU LOGICIEL",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "REINICIO DE SOFTWARE"      			// Spanish
-	} },
-	
-	/* str_FIRMWARE_UPDATE */ 
-	{ {15,3,3,3,3},
-      {     "FIRMWARE UPDATE",  // English 
-			"MISE A JOUR DU FIRMWARE",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "FIRMWARE ACTUALIZADA"      			// Spanish
-	} },
-
-    /* str_FAILED */
-	{ {8,3,3,3,3},
-      {     "  FAILED",  // English 
-			"  ECHOUE",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "  FALTA"      			// Spanish
-	} },
-
-    /* str_PLEASE */
-	{ {8,3,3,3,3},
-      {     "  PLEASE",  // English 
-			"  SVP",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "  POR FAVOR"      			// Spanish
-	} },
-
-    /* str_RECONNECT_TO_PC */
-	{ {15,3,3,3,3},
-      {     "RECONNECT TO PC",  // English 
-			"RECONNECTER AU PC",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "VOLVER DE CONECTAR AL PC"      			// Spanish
-	} },
-
-    /* str_AND_TRY_AGAIN */
-	{ {14,3,3,3,3},
-      {     " AND TRY AGAIN",  // English 
-			"ET ESSAYER DE NOUVEAU",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "INTENTAR OTRA VEZ"      			// Spanish
-	} },
-
-	/* str_NEW_FIRMWARE */
-	{ {12,3,3,3,3},
-      {     "NEW FIRMWARE",  // English 
-			"NOUVEAU FIRMWARE",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "FIRMWARE NUEVA"      			// Spanish
-	} },
-
-    /* str_DETECTED */
-	{ {10,3,3,3,3},
-      {     "  DETECTED",  // English 
-			"  DETECTE",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "  DETECTADO"      			// Spanish
-	} },
-
-	/* str_PRESS_SELECT */
-	{ {12,3,3,3,3},
-      {     "PRESS SELECT",  // English 
-			"PRESSE SELECTIONNER",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "PRESIONAR ESCOGER"      			// Spanish
-	} },
-
-	/* str_TO_REBOOT */
-	{ {11,3,3,3,3},
-      {     "  TO REBOOT",  // English 
-			"  POUR REDEMARRER",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "  REINICIAR"      			// Spanish
-	} },
-
-	/* str_VALIDATING */
-	{ {12,3,3,3,3},
-      {     "  VALIDATING",  // English 
-			"  VALIDATION",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "  VALIDANDO"      			// Spanish
-	} },	    
-	
-	/* str_GRAPH_CUT_AT_PAUSE */ 
-	{ {18,3,3,3,3},
-      {     "GRAPH CUT AT PAUSE",  // English 
-			"FOO",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "RECORTA GRAFICO EN PAUSA"      			// Spanish
-	} },
-	
-	/* str_ARE_YOU_SURE_YOU */
-	{ {16,3,3,3,3},
-      {     "ARE YOU SURE YOU",  // English 
-			"ETES VOUS SUR",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "ESTAS SEGURO DE"      			// Spanish
-	} },
-
-	/* str_WANT_TO_DELETE */
-	{ {14,3,3,3,3},
-      {     "WANT TO DELETE",  // English 
-			"DE VOULOIR EFFACER",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "QUIERES BORRAR"      			// Spanish
-	} },
-
-	/* str_WANT_TO_DISCARD */
-	{ {15,3,3,3,3},
-      {     "WANT TO DISCARD",  // English 
-			"DE VOULOIR ABANDONNER",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "QUIERES DESECHAR"      			// Spanish
-	} },
-    
-	/* str_THIS_TEST */
-	{ {10,3,3,3,3},
-      {     "THIS TEST?",  // English 
-			"CE TEST?",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "ESTA PRUEBA"      			// Spanish
-	} },
-
-   /* str_PROCESSING_DATA */
-	{ {15,3,3,3,3},
-      {     "PROCESSING DATA",  // English 
-			"TRAITEMENT DES DONNEES",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "PROCESANDO DATOS"      			// Spanish
-	} },
-	
-	/* str_PLEASE_WAIT_ELIPSES */
-	{ {14,3,3,3,3},
-      {     "PLEASE WAIT...",  // English 
-			"ATTENDEZ SVP",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "ESPERA POR FAVOR..."      			// Spanish
-	} },
-
-  /*  str_PLEASE_WAIT */
-	{ {11,3,3,3,3},
-      {     "PLEASE WAIT",  // English 
-			"ATTENDER",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "ESPERA POR FAVOR"      			// Spanish
-	} },
-
-  /*  str_WHILE_READING */
-	{ {13,3,3,3,3},
-      {     "WHILE READING",  // English 
-			"QUE LES DONNEES SOIENT LUES",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "MIENTRAS LEYENDO"      			// Spanish
-	} },
-
-  /*  str_THE_RECORD */
-	{ {10,3,3,3,3},
-      {     "THE RECORD",  // English 
-			"LE RECORD",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "EL RECORD"      			// Spanish
-	} },
-
-  /*  str_READING_RECORD */
-	{ {14,3,3,3,3},
-      {     "READING RECORD",  // English 
-			"LECTURE DES RECORD ",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "LEYENDO RECORD "      			// Spanish
-	} },
-
-  /*  str_LINK */
-	{ {4,3,3,3,3},
-      {     "LINK",  // English 
-			"LIER",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "ENLAZAR "      			// Spanish
-	} },
- 
-  /*  str_LINK_SNOW_PROFILE */
-	{ {17,3,3,3,3},
-      {     "LINK SNOW PROFILE",  // English 
-			"LIER LE PROFILE DE NEIGE",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "ENLAZAR PERFIL DE NIEVE"      			// Spanish
-	} },
- 
-  /*  str_ENTER_PASSWORD */
-	{ {14,3,3,3,3},
-      {     "ENTER PASSWORD",  // English 
-			"ENTRER LE MOT DE PASSE",	    			// French
-		    "DEU",      			// German 
-		    "ITA",      			// Italian
-		    "ENTRAR CONTRASENA"      			// Spanish
-	} },
-
-	
-    /* str_DAILY_TEST_LIMIT */  
-	{ {16,3,3,3,3},
-      {		"DAILY TEST LIMIT",	// English 
-    		"LIMITE DE 254 ",  	// French
-    		"DEU",      // German 
-    		"ITA",      // Italian 
-    		"LIMITE DE PRUEBAS"      // Spanish
-    } },
-
-    /* str_OF_DT_NUM_REACHED */  
-	{ {17,3,3,3,3},
-      {		"OF 254 REACHED!!!",	// English 
-    		"TESTS JOURNALIER ATTEINTE",  	// French
-    		"DEU",      // German 
-    		"ITA",      // Italian 
-    		"DE 254 ALCANZADO"      // Spanish
-    } },
-
-    /* str_FAVORITE_LIMIT_OF*/  
-	{ {17,3,3,3,3},
-      {		"FAVORITE LIMIT OF",	// English 
-    		"LIMITE DE 64",  	// French
-    		"DEU",      // German 
-    		"ITA",      // Italian 
-    		"LIMITE DE FAVORITOS"      // Spanish
-    } },
-
-    /* str_FAV_NUM_REACHED */  
-	{ {11,3,3,3,3},
-      {		"64 REACHED!",	// English 
-    		"TESTS JOURNALIER ATTEINTE",  	// French
-    		"DEU",      // German 
-    		"ITA",      // Italian 
-    		"64 ALCANZADO"      // Spanish
-    } },
-
-    /* str_EDITING_DISABLED */  
-	{ {16,3,3,3,3},
-      {		"EDITING DISABLED ",	// English 
-    		"EDITION DESACTIVEE",  	// French
-    		"DEU",      // German 
-    		"ITA",      // Italian 
-    		"EDITACION APAGADO"      // Spanish
-    } },
-     //TODO 
-
-     //TODO 
-
-/*#######################################################################*
- * UI_SETTINGS menu items  
- *#######################################################################*/ 
-    /* str_DATE_AND_TIME */
-    { {13,3,3,3,3},
-      {     "DATE AND TIME",  // English 
-            "DATE ET HEURE",	    			// French
-            "DEU",      			// German 
-            "ITA",      			// Italian
-            "FECHA Y HORA"      			// Spanish
-		} }, 
-
-    /* str_BLUETOOTH */
-    { {9,3,3,3,3},
-      {     "BLUETOOTH",// English 
-            "BLUETOOTH",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "BLUETOOTH"      // Spanish
-		} }, 
-
-    /* str_INITIALIZING_BLUETOOTH */
-    { {22,3,3,3,3},
-      {     "INITIALIZING BLUETOOTH",  // English 
-            "INITIALISATION BLUETOOTH",	    						   // French
-            "DEU",      						   // German 
-            "ITA",      						   // Italian
-            "INICIANDO BLUETOOTH"      						   // Spanish
-		} }, 
-
-	    /* str_BACK_LIGHT */
-	    { {10,3,3,3,3},
-	      {     "BACK LIGHT",	    // English 
-	            "poop",	    				// French
-	            "poop",      				// German 
-	            "poop",      				// Italian
-	            "LUZ"      				// Spanish
-			} },
-			
-    /* str_GRAPH_DETAIL */
-    { {12,3,3,3,3},
-      {     "GRAPH DETAIL",	    // English 
-            "DETAIL GRAPHE",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "DETALLE GRAFICO"      				// Spanish
-		} }, 
-		
-		
-		
-	/* str_GRAPH_DETAIL_0 */
-    { {14,3,3,3,3},
-      {     "GRAPH DETAIL 0",	    // English 
-            "DETAIL GRAPHE 0",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "DETALLE GRAFICO 0"      				// Spanish
-		} }, 
-
-    /* str_GRAPH_DETAIL 1*/
-    { {14,3,3,3,3},
-      {     "GRAPH DETAIL 1",	    // English 
-            "DETAIL GRAPHE 1",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "DETALLE GRAFICO 1"      				// Spanish
-		} }, 
-    /* str_GRAPH_DETAIL 2 */
-    { {14,3,3,3,3},
-      {     "GRAPH DETAIL 2",	    // English 
-            "DETAIL GRAPHE 2",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "DETALLE GRAFICO 2"      				// Spanish
-		} }, 
-    /* str_GRAPH_DETAIL 3*/
-    { {14,3,3,3,3},
-      {     "GRAPH DETAIL 3",	    // English 
-            "DETAIL GRAPHE 3",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "DETALLE GRAFICO 3"      				// Spanish
-		} }, 
-    /* str_GRAPH_DETAIL 4*/
-    { {14,3,3,3,3},
-      {     "GRAPH DETAIL 4",	    // English 
-            "DETAIL GRAPHE 4",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "DETALLE GRAFICO 4"      				// Spanish
-		} }, 
-
-    /* str_LANGUAGE */
-    { {8,3,3,3,3},
-      {     "LANGUAGE",	    // English 
-            "LANGUE",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "IDIOMA"      				// Spanish
-		} }, 
-    
-    /* str_TESTS_REQUIRE_SLOPE */
-    { {14,3,3,3,3},
-      {     "REQUIRE SLOPE",	    // English 
-            "PENTE OBLIGATOIRE",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "EXIGIR INCLINACION"      				// Spanish
-		} }, 
-    
-	/* str_ABOUT_DEVICE */
-    { {12,3,3,3,3},
-      {     "ABOUT DEVICE",	    // English 
-            "A PROPOS DE L'APPAREIL",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "INFORMACION DEL APARATO"      				// Spanish
-		} }, 
-
-/*#######################################################################*
-* Bluetooth main content 												 *
-/*#######################################################################*/     
-	/* str_INITIALIZING */
-    { {12,3,3,3,3},
-      {     "INITIALIZING",	    // English 
-            "INITIALISATION",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "INICIANDO"      				// Spanish
-		} }, 
-
-	/* str_THE_DEVICE_IS_NOW */
-    { {17,3,3,3,3},
-      {     "THE DEVICE IS NOW",	    // English 
-            "L'APPAREIL EST MAINTENANT DECOUVRABLE",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "EL APARATO ESTA "      				// Spanish
-		} }, 
-
-	/* str_DISCOVERABLE */
-    { {12,3,3,3,3},
-      {     "DISCOVERABLE.",	    // English 
-            "FOO",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "DETECTABLE"      				// Spanish
-		} }, 
-
-	/* str_PLEASE_CONNECT */
-    { {14,3,3,3,3},
-      {     "PLEASE CONNECT",	    // English 
-            "CONNECTER VOTRE ",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "FAVOR DE CONECTAR"      				// Spanish
-		} }, 
-
-	/* str_YOUR_DEVICE */
-    { {11,3,3,3,3},
-      {     "YOUR DEVICE",	    // English 
-            "APPAREIL SVP",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "TU APARATO"      				// Spanish
-		} }, 
-
-	/* str_CONNECTED */
-    { {9,3,3,3,3},
-      {     "CONNECTED",	    // English 
-            "CONNECTE",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "CONECTADO"      				// Spanish
-		} }, 
-
-	/* str_PREPARING_TO_SYNC */
-    { {17,3,3,3,3},
-      {     "PREPARING TO SYNC",	    // English 
-            "PREPARATION DE LA SYNCHRONISATION",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "PREPARANDO PARA SINCRONIZAR"      				// Spanish
-		} }, 
-
-	/* str_SYNCING */
-    { {7,3,3,3,3},
-      {     "SYNCING",	    // English 
-            "SYNCHRONISATION",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "SINCRONIZANDO"      				// Spanish
-		} }, 
-		
-	/* str_SYNC_COMPLETE */
-    { {14,3,3,3,3},
-      {     "SYNC COMPLETE!",	    // English 
-            "SYNCHRONISATION COMPLETEE",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "SINCRONIZADO!"      				// Spanish
-		} }, 
-
-	/* str_SYNC_FAILED */
-    { {12,3,3,3,3},
-      {     "SYNC FAILED!",	    // English 
-            "SYNCHRONISATION ECHOUEE",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "SYNC FALLO!"      				// Spanish
-		} }, 
-
-	/* str_PLEASE_TRY_AGAIN */
-    { {16,3,3,3,3},
-      {     "PLEASE TRY AGAIN",	    // English 
-            "ESSAYER DE NOUVEAU SVP",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "FAVOR DE INTENTAR OTRA VEZ"      				// Spanish
-		} }, 
-
-	/* str_PLEASE_TURN */
-    { {11,3,3,3,3},
-      {     "PLEASE TURN",	    // English 
-            "ALLUMER BLUETOOTH ",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "FAVOR DE "      				// Spanish
-		} }, 
-
-	/* str_ON_BLUETOOTH */
-    { {12,3,3,3,3},
-      {     "ON BLUETOOTH",	    // English 
-            "POUR ENVOYER",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "APAGAR BLUETOOTH"      				// Spanish
-		} }, 
-
-	/* str_TO_SEND_THE_FILE */
-    { {16,3,3,3,3},
-      {     "TO SEND THE FILE",	    // English 
-            "LE FICHIER",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "PARA ENVIAR LA CARPETA"      				// Spanish
-		} }, 
-
-	/* str_NO_TESTS_AVAILABLE */
-    { {18,3,3,3,3},
-      {     "NO TESTS AVAILABLE",	    // English 
-            "A SYNCHRONISER",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "NO HAY PRUEBAS DISPONIBLES"      				// Spanish
-		} }, 
-
-	/* str_TO_SYNC */
-    { {8,3,3,3,3},
-      {     "TO SYNC!",	    // English 
-            "AUCUN TEST ",	    				// French
-            "DEU",      				// German 
-            "ITA",      				// Italian
-            "PARA SINCRONIZAR!"      				// Spanish
-		} }, 
-		
-		
-/*#######################################################################*
- * UI_DATE_AND_TIME
- *#######################################################################*/     
- /* str_DATE */
-    { {4,3,3,3,3},
-      {     "DATE",	    // English 
-            "DATE",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "FECHA"      // Spanish
-		} }, 
-		
-    /* str_TIME_FORMAT */
-    { {11,3,3,3,3},
-      {     "TIME FORMAT",	    // English 
-            "FORMAT DE LHEURE",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "FORMATO HORARIO"      // Spanish
-		} }, 
-		
-    /* str_TIME_ZONE */
-    { {9,3,3,3,3},
-      {     "TIME ZONE",	    // English 
-            "FUSEAU HORAIRE",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "ZONA HORARIA"      // Spanish
-		} }, 
-
-    /* str_TIME */
-    { {4,3,3,3,3},
-      {     "TIME",	    // English 
-            "HEURE",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "HORA"      // Spanish
-		} }, 
-
-    /* str_ZONE */
-    { {4,3,3,3,3},
-      {     "ZONE",	    // English 
-            "FUSEAU",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "ZONA"      // Spanish
-		} }, 
-
-    /* str_DAYLIGHT_SAVINGS_TIME_1 */
-    { {8,3,3,3,3},
-      {     "DAYLIGHT",	    // English 
-            "L'HEURE ",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "EL HORARIO"      // Spanish
-		} }, 
-
-    /* str_DAYLIGHT_SAVINGS_TIME_2 */
-    { {12,3,3,3,3},
-      {     "SAVINGS TIME",	    // English 
-            "D'ETE",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "DE VERANO "      // Spanish
-		} }, 
-    
-/*#######################################################################*
- * TIME ZONE lists                                                       *
- *#######################################################################*/     
- /* str_ADELAIDE */
-    { {8,3,3,3,3},
-      {     "ADELAIDE",	    // English 
-            "ADELAIDE",	    // French
-            "ADELAIDE",      // German 
-            "ADELAIDE",      // Italian
-            "ADELAIDE"      // Spanish
-		} }, 
-
-	/* str_ALMATY */
-    { {6,3,3,3,3},
-      {     "ALMATY",	    // English 
-            "ALMATY",	    // French
-            "ALMATY",      // German 
-            "ALMATY",      // Italian
-            "ALMATY"      // Spanish
-		} }, 
-
-	/* str_AUCKLAND */
-    { {8,3,3,3,3},
-      {     "AUCKLAND",	    // English 
-            "AUCKLAND",	    // French
-            "AUCKLAND",      // German 
-            "AUCKLAND",      // Italian
-            "AUCKLAND"      // Spanish
-		} }, 
-
-	/* str_BANGKOK */
-    { {7,3,3,3,3},
-      {     "BANGKOK",	    // English 
-            "BANGKOK",	    // French
-            "BANGKOK",      // German 
-            "BANGKOK",      // Italian
-            "BANGKOK"      // Spanish
-		} }, 
-
-	/* str_BOMBAY */
-    { {6,3,3,3,3},
-      {     "BOMBAY",	    // English 
-            "BOMBAY",	    // French
-            "BOMBAY",      // German 
-            "BOMBAY",      // Italian
-            "BOMBAY"      // Spanish
-		} }, 
-
-	/* str_BRASILIA */
-    { {8,3,3,3,3},
-      {     "BRASILIA",	    // English 
-            "BRASILIA",	    // French
-            "BRASILIA",      // German 
-            "BRASILIA",      // Italian
-            "BRASILIA"      // Spanish
-		} }, 
-
-	/* str_BRISBANE */
-    { {8,3,3,3,3},
-      {     "BRISBANE",	    // English 
-            "BRISBANE",	    // French
-            "BRISBANE",      // German 
-            "BRISBANE",      // Italian
-            "BRISBANE"      // Spanish
-		} }, 
-
-	/* str_CAIRO */
-    { {5,3,3,3,3},
-      {     "CAIRO",	  // English 
-            "CAIRO",	    // French
-            "CAIRO",      // German 
-            "CAIRO",      // Italian
-            "CAIRO"      // Spanish
-		} }, 
-
-	/* str_CAPE_TOWN */
-    { {9,3,3,3,3},
-      {     "CAPE TOWN",	    // English 
-            "CAPE TOWN",	    // French
-            "CAPE TOWN",      // German 
-            "CAPE TOWN",      // Italian
-            "CAPE TOWN"      // Spanish
-		} }, 
-
-	/* str_CAPE_VERDE */
-    { {10,3,3,3,3},
-      {     "CAPE VERDE",	    // English 
-            "CAPE VERDE",	    // French
-            "CAPE VERDE",      // German 
-            "CAPE VERDE",      // Italian
-            "CAPE VERDE"      // Spanish
-		} }, 
-
-	/* str_CHITA */
-    { {5,3,3,3,3},
-      {     "CHITA",	    // English 
-            "CHITA",	    // French
-            "CHITA",      // German 
-            "CHITA",      // Italian
-            "CHITA"      // Spanish
-		} }, 
-
-	/* str_DARWIN */
-    { {6,3,3,3,3},
-      {     "DARWIN",	    // English 
-            "DARWIN",	    // French
-            "DARWIN",      // German 
-            "DARWIN",      // Italian
-            "DARWIN"      // Spanish
-		} }, 
-
-	/* str_EKATERINBURG */
-    { {12,3,3,3,3},
-      {     "EKATERINBURG",	    // English 
-            "EKATERINBURG",	    // French
-            "EKATERINBURG",      // German 
-            "EKATERINBURG",      // Italian
-            "EKATERINBURG"      // Spanish
-		} }, 
-
-	/* str_EU_CENTRAL */
-    { {10,3,3,3,3},
-      {     "EU-CENTRAL",	    // English 
-            "EU-CENTRAL",	    // French
-            "EU-CENTRAL",      // German 
-            "EU-CENTRAL",      // Italian
-            "EU-CENTRAL"      // Spanish
-		} }, 
-		
-	/* str_EU_EASTERN */
-    { {10,3,3,3,3},
-      {     "EU-EASTERN",	    // English 
-            "EU-EASTERN",	    // French
-            "EU-EASTERN",      // German 
-            "EU-EASTERN",      // Italian
-            "EU-EASTERN"      // Spanish
-		} }, 
-
-	/* str_EU_WESTERN */
-    { {10,3,3,3,3},
-      {     "EU-WESTERN",	    // English 
-            "EU-WESTERN",	    // French
-            "EU-WESTERN",      // German 
-            "EU-WESTERN",      // Italian
-            "EU-WESTERN"      // Spanish
-		} }, 
-
-	/* str_FIJI */ 
-    { {4,3,3,3,3},
-      {     "FIJI",	    // English 
-            "FIJI",	    // French
-            "FIJI",      // German 
-            "FIJI",      // Italian
-            "FIJI"      // Spanish
-		} }, 
-
-	/* str_HONG_KONG */
-    { {9,3,3,3,3},
-      {     "HONG KONG",	    // English 
-            "HONG KONG",	    // French
-            "HONG KONG",      // German 
-            "HONG KONG",      // Italian
-            "HONG KONG"      // Spanish
-		} }, 
-
-	/* str_ICELAND */
-    { {7,3,3,3,3},
-      {     "ICELAND",	    // English 
-            "ICELAND",	    // French
-            "ICELAND",      // German 
-            "ICELAND",      // Italian
-            "ICELAND"      // Spanish
-		} }, 
-
-	/* str_ISLAMABAD */
-    { {9,3,3,3,3},
-      {     "ISLAMABAD",	    // English 
-            "ISLAMABAD",	    // French
-            "ISLAMABAD",      // German 
-            "ISLAMABAD",      // Italian
-            "ISLAMABAD"      // Spanish
-		} }, 
-
-	/* str_JAKARTA */
-    { {7,3,3,3,3},
-      {     "JAKARTA",	    // English 
-            "JAKARTA",	    // French
-            "JAKARTA",      // German 
-            "JAKARTA",      // Italian
-            "JAKARTA"      // Spanish
-		} }, 
-		
-	/* str_KABUL */
-    { {5,3,3,3,3},
-      {     "KABUL",	    // English 
-            "KABUL",	    // French
-            "KABUL",      // German 
-            "KABUL",      // Italian
-            "KABUL"      // Spanish
-		} }, 
-
-	/* str_KALININGRAD */
-    { {11,3,3,3,3},
-      {     "KALININGRAD",	    // English 
-            "KALININGRAD",	    // French
-            "KALININGRAD",      // German 
-            "KALININGRAD",      // Italian
-            "KALININGRAD"      // Spanish
-		} }, 
-		
-	/* str_KATHMANDU */
-    { {9,3,3,3,3},
-      {     "KATHMANDU",	    // English 
-            "KATHMANDU",	    // French
-            "KATHMANDU",      // German 
-            "KATHMANDU",      // Italian
-            "KATHMANDU"      // Spanish
-		} }, 
-
-	/* str_KRASNOYARSK */
-    { {11,3,3,3,3},
-      {     "KRASNOYARSK",	    // English 
-            "KRASNOYARSK",	    // French
-            "KRASNOYARSK",      // German 
-            "KRASNOYARSK",      // Italian
-            "KRASNOYARSK"      // Spanish
-		} }, 
-
-	/* str_LAGOS */
-    { {5,3,3,3,3},
-      {     "LAGOS",	    // English 
-            "LAGOS",	    // French
-            "LAGOS",      // German 
-            "LAGOS",      // Italian
-            "LAGOS"      // Spanish
-		} }, 
-
-	/* str_MAGADAN */
-    { {7,3,3,3,3},
-      {     "MAGADAN",	    // English 
-            "MAGADAN",	    // French
-            "MAGADAN",      // German 
-            "MAGADAN",      // Italian
-            "MAGADAN"      // Spanish
-		} }, 
-
-	/* str_MEX_CENTRAL */
-    { {11,3,3,3,3},
-      {     "MEX-CENTRAL",	    // English 
-            "MEX-CENTRAL",	    // French
-            "MEX-CENTRAL",      // German 
-            "MEX-CENTRAL",      // Italian
-            "MEX-CENTRAL"      // Spanish
-		} }, 
-
-	/* str_MEX_MOUNTAIN */
-    { {12,3,3,3,3},
-      {     "MEX-MOUNTAIN",	    // English 
-            "MEX-MOUNTAIN",	    // French
-            "MEX-MOUNTAIN",      // German 
-            "MEX-MOUNTAIN",      // Italian
-            "MEX-MOUNTAIN"      // Spanish
-		} }, 
-		
-	/* str_MEX_PACIFIC */
-    { {11,3,3,3,3},
-      {     "MEX-PACIFIC",	    // English 
-            "MEX-PACIFIC",	    // French
-            "MEX-PACIFIC",      // German 
-            "MEX-PACIFIC",      // Italian
-            "MEX-PACIFIC"      // Spanish
-		} }, 
-
-	/* str_MOSCOW */
-    { {6,3,3,3,3},
-      {     "MOSCOW",	    // English 
-            "MOSCOW",	    // French
-            "MOSCOW",      // German 
-            "MOSCOW",      // Italian
-            "MOSCOW"      // Spanish
-		} }, 
-
-	/* str_MUSCAT */
-    { {6,3,3,3,3},
-      {     "MUSCAT",	    // English 
-            "MUSCAT",	    // French
-            "MUSCAT",      // German 
-            "MUSCAT",      // Italian
-            "MUSCAT"      // Spanish
-		} }, 
-
-	/* str_NEWFOUNDLAND */
-    { {12,3,3,3,3},
-      {     "NEWFOUNDLAND",	    // English 
-            "NEWFOUNDLAND",	    // French
-            "NEWFOUNDLAND",      // German 
-            "NEWFOUNDLAND",      // Italian
-            "NEWFOUNDLAND"      // Spanish
-		} }, 
-
-	/* str_NOVOSIBIRSK */
-    { {11,3,3,3,3},
-      {     "NOVOSIBIRSK",	    // English 
-            "NOVOSIBIRSK",	    // French
-            "NOVOSIBIRSK",      // German 
-            "NOVOSIBIRSK",      // Italian
-            "NOVOSIBIRSK"      // Spanish
-		} }, 
-
-	/* str_PERTH */
-    { {5,3,3,3,3},
-      {     "PERTH",	    // English 
-            "PERTH",	    // French
-            "PERTH",      // German 
-            "PERTH",      // Italian
-            "PERTH"      // Spanish
-		} }, 
-
-	/* str_PETROPAVLOVSK */
-    { {14,3,3,3,3},
-      {     "PETROPAVLOVSK",	    // English 
-            "PETROPAVLOVSK",	    // French
-            "PETROPAVLOVSK",      // German 
-            "PETROPAVLOVSK",      // Italian
-            "PETROPAVLOVSK"      // Spanish
-		} }, 
-
-	/* str_RIYADH */
-    { {6,3,3,3,3},
-      {     "RIYADH",	    // English 
-            "RIYADH",	    // French
-            "RIYADH",      // German 
-            "RIYADH",      // Italian
-            "RIYADH"      // Spanish
-		} }, 
-
-	/* str_SAMARA */ 
-    { {6,3,3,3,3},
-      {     "SAMARA",	    // English 
-            "SAMARA",	    // French
-            "SAMARA",      // German 
-            "SAMARA",      // Italian
-            "SAMARA"      // Spanish
-		} }, 
-
-	/* str_SAMOA */
-    { {5,3,3,3,3},
-      {     "SAMOA",	    // English 
-            "SAMOA",	    // French
-            "SAMOA",      // German 
-            "SAMOA",      // Italian
-            "SAMOA"      // Spanish
-		} }, 
-
-	/* str_SYDNEY */
-    { {6,3,3,3,3},
-      {     "SYDNEY",	    // English 
-            "SYDNEY",	    // French
-            "SYDNEY",      // German 
-            "SYDNEY",      // Italian
-            "SYDNEY"      // Spanish
-		} }, 
-
-	/* str_TASMANIA */
-    { {8,3,3,3,3},
-      {     "TASMANIA",	    // English 
-            "TASMANIA",	    // French
-            "TASMANIA",      // German 
-            "TASMANIA",      // Italian
-            "TASMANIA"      // Spanish
-		} }, 
-
-	/* str_TEHRAN */
-    { {6,3,3,3,3},
-      {     "TEHRAN",	    // English 
-            "TEHRAN",	    // French
-            "TEHRAN",      // German 
-            "TEHRAN",      // Italian
-            "TEHRAN"      // Spanish
-		} }, 
-
-	/* str_TOKYO */
-    { {5,3,3,3,3},
-      {     "TOKYO",	    // English 
-            "TOKYO",	    // French
-            "TOKYO",      // German 
-            "TOKYO",      // Italian
-            "TOKYO"      // Spanish
-		} }, 
-
-	/* str_US_ALASKA */ 
-    { {6,3,3,3,3},
-      {     "US-ALASKA",	    // English 
-            "US-ALASKA",	    // French
-            "US-ALASKA",      // German 
-            "US-ALASKA",      // Italian
-            "US-ALASKA"      // Spanish
-		} }, 
-
-	/* str_US_ARIZONA */
-    { {10,3,3,3,3},
-      {     "US-ARIZONA",	    // English 
-            "US-ARIZONA",	    // French
-            "US-ARIZONA",      // German 
-            "US-ARIZONA",      // Italian
-            "US-ARIZONA"      // Spanish
-		} }, 
-
-	/* str_US_ATLANTIC */
-    { {11,3,3,3,3},
-      {     "US-ATLANTIC",	    // English 
-            "US-ATLANTIC",	    // French
-            "US-ATLANTIC",      // German 
-            "US-ATLANTIC",      // Italian
-            "US-ATLANTIC"      // Spanish
-		} }, 
-
-	/* str_US_CENTRAL */
-    { {10,3,3,3,3},
-      {     "US-CENTRAL",	    // English 
-            "US-CENTRAL",	    // French
-            "US-CENTRAL",      // German 
-            "US-CENTRAL",      // Italian
-            "US-CENTRAL"      // Spanish
-		} }, 
-
-	/* str_US_EASTERN */
-    { {10,3,3,3,3},
-      {     "US-EASTERN",	    // English 
-            "US-EASTERN",	    // French
-            "US-EASTERN",      // German 
-            "US-EASTERN",      // Italian
-            "US-EASTERN"      // Spanish
-		} }, 
-
-	/* str_US_HAWAII */
-    { {9,3,3,3,3},
-      {     "US-HAWAII",	    // English 
-            "US-HAWAII",	    // French
-            "US-HAWAII",      // German 
-            "US-HAWAII",      // Italian
-            "US-HAWAII"      // Spanish
-		} }, 
-
-	/* str_US_MOUNTAIN */
-    { {11,3,3,3,3},
-      {     "US-MOUNTAIN",	    // English 
-            "US-MOUNTAIN",	    // French
-            "US-MOUNTAIN",      // German 
-            "US-MOUNTAIN",      // Italian
-            "US-MOUNTAIN"      // Spanish
-		} }, 
-	
-	/* str_US_PACIFIC */
-    { {10,3,3,3,3},
-      {     "US-PACIFIC",	    // English 
-            "US-PACIFIC",	    // French
-            "US-PACIFIC",      // German 
-            "US-PACIFIC",      // Italian
-            "US PACIFIC"      // Spanish
-		} }, 
-
-	/* str_VLADIVOSTOK */
-    { {11,3,3,3,3},
-      {     "VLADIVOSTOK",	    // English 
-            "VLADIVOSTOK",	    // French
-            "VLADIVOSTOK",      // German 
-            "VLADIVOSTOK",      // Italian
-            "VLADIVOSTOK"      // Spanish
-		} }, 
-
-	/* str_WINDHOEK */
-    { {8,3,3,3,3},
-      {     "WINDHOEK",	    // English 
-            "WINDHOEK",	    // French
-            "WINDHOEK",      // German 
-            "WINDHOEK",      // Italian
-            "WINDHOEK"      // Spanish
-		} }, 
-
-/*#######################################################################*
- * Secret Sensor output menu                                             *
- *#######################################################################*/
-    /* str_SENSOR_OUTPUT*/
-    { {13,3,3,3,3},
-      {     "SENSOR OUTPUT",	    // English 
-            "SORTIE DU CAPTEUR",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "PRODUCCION DEL SENSOR"      // Spanish
-		} }, 
-
-    /* str_PRESSURE */
-    { {9,3,3,3,3},
-      {     "PRESSURE:",	    // English 
-            "PRESSION",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "PRESION:"      // Spanish
-		} }, 
-
-    /* str_DEPTH */
-    { {6,3,3,3,3},
-      {     "DEPTH:",	    // English 
-            "PROFONDEUR:",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "ANCHO:"      // Spanish
-		} }, 
-
-    /* str_EYE */
-    { {4,3,3,3,3},
-      {     "EYE:",	    // English 
-            "OEIL",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "OJO:"      // Spanish
-		} }, 
-    
-    /* str_ROS1 */
-    { {6,3,3,3,3},
-      {     "ROS 1:",	    // English 
-            "ROS 1:",	    // French
-            "ROS 1:",      // German 
-            "ROS 1:",      // Italian
-            "ROS 1:"      // Spanish
-		} }, 
-
-    /* str_ROS2 */
-    { {6,6,6,6,6},
-      {     "ROS 2:",	    // English 
-            "ROS 2:",	    // French
-            "ROS 2:",      // German 
-            "ROS 2:",      // Italian
-            "ROS 2:"      // Spanish
-		} }, 
-
-    /* str_TILT */
-    { {5,3,3,3,3},
-      {     "TILT:",	    // English 
-            "INCLINAISON:",	    // French
-            "DEU",      // German 
-            "ITA",      // Italian
-            "INCLINACION:"      // Spanish
-		} } 
-
+/*str_SELECT*/ {{6,12,9,3,7},{"SELECT","SELECTIONNER","AUSWÄHLEN","ITA","ESCOGER"}},
+/*str_BACK*/ {{4,6,6,3,8},{"BACK","RETOUR","ZURÜCK","ITA","REGRESAR"}},
+/*str_NEXT*/ {{4,7,6,3,7},{"NEXT","SUIVANT","WEITER","ITA","PROXIMO"}},
+/*str_MENU*/ {{4,4,4,3,4},{"MENU","MENU","MENÜ","ITA","MENU"}},
+/*str_OPTIONS*/ {{7,7,8,3,8},{"OPTIONS","OPTIONS","OPTIONEN","ITA","OPCIONES"}},
+/*str_DELETE*/ {{6,9,7,3,6},{"DELETE","SUPPRIMER","LÖSCHEN","ITA","BORRAR"}},
+/*str_DISCARD*/ {{7,10,9,3,8},{"DISCARD","ABANDONNER","VERWERFEN","ITA","DESECHAR"}},
+/*str_DETAIL*/ {{6,6,6,3,7},{"DETAIL","DETAIL","DETAIL","ITA","DETALLE"}},
+/*str_GPS*/ {{4,4,4,3,4},{"GPS:","GPS:","GPS:","ITA","GPS:"}},
+/*str_GPS*/ {{4,4,4,3,4},{"GPS:","GPS:","GPS:","ITA","GPS:"}},
+/*str_SLOPE*/ {{5,5,4,3,11},{"SLOPE","PENTE","HANG","ITA","INCLINACION"}},
+/*str_FAVORITE*/ {{8,6,7,3,8},{"FAVORITE","FAVORI","FAVORIT","ITA","FAVORITO"}},
+/*str_CANCEL*/ {{6,7,9,3,8},{"CANCEL","ANNULER","ABBRECHEN","ITA","CANCELAR"}},
+/*str_START*/ {{5,9,5,3,7},{"START","COMMENCER","START","ITA","INICIAR"}},
+/*str_RETRY*/ {{5,10,11,3,10},{"RETRY","RE-ESSAYER","WIEDERHOLEN","ITA","REINTENTAR"}},
+/*str_ON*/ {{2,6,11,3,7},{"ON","ALLUME","EINSCHALTEN","ITA","PRENDER"}},
+/*str_OFF*/ {{3,6,11,3,6},{"OFF","ETEINT","AUSSCHALTEN","ITA","APAGAR"}},
+/*str_OK*/ {{2,2,2,3,2},{"OK","OK","OK","ITA","OK"}},
+/*str_N/A*/ {{3,4,4,3,3},{"N/A","S.O.","K.A.","ITA","N/A"}},
+/*str_SAVE*/ {{4,11,9,3,7},{"SAVE","SAUVEGARDER","SPEICHERN","ITA","GUARDAR"}},
+/*str_NEW_TEST*/ {{8,12,10,3,12},{"NEW TEST","NOUVEAU TEST","NEUER TEST","ITA","NUEVA PRUEBA"}},
+/*str_SNOW_PROFILES*/ {{13,16,13,3,17},{"SNOW PROFILES","PROFILS DE NEIGE","SCHNEEPROFILE","ITA","PREFILES DE NIEVE"}},
+/*str_FAVORITES*/ {{9,7,9,3,9},{"FAVORITES","FAVORIS","FAVORITEN","ITA","FAVORITOS"}},
+/*str_SETTINGS*/ {{8,8,13,3,7},{"SETTINGS","REGLAGES","EINSTELLUNGEN","ITA","AJUSTES"}},
+/*str_MASS_STORAGE*/ {{12,17,14,3,21},{"MASS STORAGE","STOCKAGE DE MASSE","MASSENSPEICHER","ITA","ALMACENAMIENTO MASIVO"}},
+/*str_BLUETOOTH_TRANSFER*/ {{18,18,21,3,23},{"BLUETOOTH TRANSFER","TRANSFER BLUETOOTH","BLUETOOTH ÜBERTRAGUNG","ITA","TRANSFERENCIA BLUETOOTH"}},
+/*str_NEW_SNOW_PROFILE*/ {{16,23,18,3,21},{"NEW SNOW PROFILE","NOUVEAU PROFIL DE NEIGE","NEUES SCHNEEPROFIL","ITA","NUEVA PERFIL DE NIEVE"}},
+/*str_SLOPE_MEASUREMENT*/ {{17,15,19,3,23},{"SLOPE MEASUREMENT","MESURE DE PENTE","HANGNEIGUNGSMESSUNG","ITA","MEDICIîN DE INCLINACION"}},
+/*str_SETTINGS_SEL*/ {{12,22,21,3,11},{"SETTINGS SEL","SELECTION DES REGLAGES","AUSWAHLEINSTELLUNGEN ","ITA","AJUSTES SEL"}},
+/*str_CONFIG_SETTINGS*/ {{15,26,27,3,22},{"CONFIG SETTINGS","CONFIGURATION DES REGLAGES","KONFIGURATIONSEINSTELLUNGEN","ITA","CONFIGURAR LOS AJUSTES"}},
+/*str_SETTINGS_MENU*/ {{13,17,16,3,15},{"SETTINGS MENU","MENU DES REGLAGES","EINSTELLUNGSMENÜ","ITA","MENU DE AJUSTES"}},
+/*str_DELETE_TEST?*/ {{12,16,13,3,14},{"DELETE TEST?","EFFACER LE TEST?","TEST LÖSCHEN?","ITA","BORRAR PRUEBA?"}},
+/*str_DELETE_ALL*/ {{10,12,13,3,12},{"DELETE ALL","TOUT EFFACER","ALLES LÖSCHEN","ITA","BORRAR TODOS"}},
+/*str_DELETE_ALL_TESTS*/ {{16,22,18,3,20},{"DELETE ALL TESTS","EFFACER TOUS LES TESTS","ALLE TESTS LÖSCHEN","ITA","BORRAR TODAS PRUEBAS"}},
+/*str_IN_THIS_FOLDER?*/ {{15,19,17,3,16},{"IN THIS FOLDER?","DANS CE REPERTOIRE?","IN DIESEN ORDNER?","ITA","EN ESTA CARPETA?"}},
+/*str_DELETE_FILE?*/ {{12,19,17,3,15},{"DELETE FILE?","EFFACER LE FICHIER?","DOKUMENT LÖSCHEN?","ITA","BORRAR CARPETA?"}},
+/*str_DELETE_ALL_IN_FOLDER?*/ {{21,32,23,3,23},{"DELETE ALL IN FOLDER?","TOUT EFFACER DANS LE REPERTOIRE?","ALLE IM ORDNER LÖSCHEN?","ITA","BORRAR TODO EN CARPETA?"}},
+/*str_DELETING_FOLDER...*/ {{18,25,22,3,16},{"DELETING FOLDER...","EFFACEMENT DU REPERTOIREÉ","LÖSCHEN DES ORDNERS...","ITA","BORRANDO CARPETA"}},
+/*str_ALIGN_PROBE*/ {{11,16,16,3,18},{"ALIGN PROBE","ALIGNER LA SONDE","SONDE AUSRICHTEN","ITA","ALINEAR EXPLORADOR"}},
+/*str_PRESS*/ {{5,7,7,3,9},{"PRESS","APPUYER","DRÜCKEN","ITA","PRESIONAR"}},
+/*str_TO_BEGIN*/ {{8,25,11,3,7},{"TO BEGIN","POUR COMMENCER A CALIBRER","ZUM STARTEN","ITA","EMPEZAR"}},
+/*str_CALIBRATING*/ {{13,11,13,3,13},{"  CALIBRATING","  CALIBRAGE","KALIBRIERUNG ","ITA","  CALIBRACION"}},
+/*str_COLLECTING_DATA*/ {{15,22,13,3,16},{"COLLECTING DATA","COLLECTION DES DONNEES","DATEN SAMMELN","ITA","COLECTANDO DATOS"}},
+/*str_COMPASS_CALIBRATION*/ {{19,26,20,3,25},{"COMPASS CALIBRATION","CALIBREMENT DE LA BOUSSOLE","KOMPASS-KALIBRIERUNG","ITA","CALIBRACION DE LA BRòJULA"}},
+/*str_GPS_LOCK_ACQUIRED!*/ {{18,21,19,3,13},{"GPS LOCK ACQUIRED!","SATELLITES GPS ACQUIS","GPS DATEN ERHALTEN!","ITA","GPS ADQUIRIDO"}},
+/*str_GPS_INFORMATION*/ {{15,15,15,3,15},{"GPS INFORMATION","INFORMATION GPS","GPS INFORMATION","ITA","INFORMACION GPS"}},
+/*str_ACQUIRED!*/ {{9,7,9,3,9},{"ACQUIRED!","ACQUIS!","ERHALTEN!","ITA","ADQUIRIDO"}},
+/*str_PLEASE_ENTER_THE*/ {{16,13,18,3,15},{"PLEASE ENTER THE","SVP ENTRER LE","BITTE DEN EINGEBEN","ITA","FAVOR DE ENTRAR"}},
+/*str_ENTER*/ {{5,7,8,3,6},{"ENTER","ENTRER ","ERFASSEN","ITA","ENTRAR"}},
+/*str_MANUAL_ENTRY*/ {{12,15,17,3,14},{"MANUAL ENTRY","MANUELLE ENTRER","MANUELLER EINTRAG","ITA","ENTRADA MANUAL"}},
+/*str_ASPECT*/ {{6,6,10,3,7},{"ASPECT","ASPECT","EXPOSITION","ITA","ASPECTO"}},
+/*str_ERROR*/ {{5,6,6,3,5},{"ERROR","ERREUR","FEHLER","ITA","ERROR"}},
+/*str_REMOVE_SDCARD*/ {{13,17,18,3,21},{"REMOVE SDCARD","RETIRER LA SDCARD","SD-KARTE ENTFERNEN","ITA","RETIRAR LA TARJETA SD"}},
+/*str_PLEASE_INSERT*/ {{13,11,15,3,17},{"PLEASE INSERT","SVP INSERER","BITTE EINFÜHREN","ITA","FAVOR DE INSERTAR"}},
+/*str_A_VALID_SDCARD*/ {{14,17,21,3,17},{"A VALID SDCARD","UNE SDCARD VALIDE","EINE GÜLTIGE SD-KARTE","ITA","VALIDO TARJETA SD"}},
+/*str_TO_THE_DEVICE*/ {{13,15,9,3,10},{"TO THE DEVICE","DANS LÕAPPAREIL","INS GERÄT","ITA","AL APARATO"}},
+/*str_REBOOTING*/ {{9,11,10,3,11},{"REBOOTING","REDEMARRAGE","NEUSTARTEN","ITA","REINICIENDO"}},
+/*str_REBOOTING...*/ {{12,14,13,3,14},{"REBOOTING...","REDEMARRAGE...","NEUSTARTEN...","ITA","REINICIENDO..."}},
+/*str_REBOOT*/ {{6,10,8,3,8},{"REBOOT","REDEMARRER","NEUSTART","ITA","REINICIO"}},
+/*str_SW_REBOOT*/ {{9,23,17,3,20},{"SW REBOOT","REDEMARRAGE DU LOGICIEL","SOFTWARE NEUSTART","ITA","REINICIO DE SOFTWARE"}},
+/*str_FIRMWARE_UPDATE*/ {{15,23,15,3,20},{"FIRMWARE UPDATE","MISE A JOUR DU FIRMWARE","FIRMWARE UPDATE","ITA","FIRMWARE ACTUALIZADA"}},
+/*str_FAILED*/ {{8,8,14,3,7},{"  FAILED","  ECHOUE","FEHLGESCHLAGEN","ITA","  FALTA"}},
+/*str_PLEASE*/ {{8,5,5,3,11},{"  PLEASE","  SVP","BITTE","ITA","  POR FAVOR"}},
+/*str_RECONNECT_TO_PC*/ {{15,17,27,3,24},{"RECONNECT TO PC","RECONNECTER AU PC","ERNEUT MIT DEM PC VERBINDEN","ITA","VOLVER DE CONECTAR AL PC"}},
+/*str_AND_TRY_AGAIN*/ {{14,21,20,3,17},{" AND TRY AGAIN","ET ESSAYER DE NOUVEAU","UND ERNEUT VERSUCHEN","ITA","INTENTAR OTRA VEZ"}},
+/*str_NEW_FIRMWARE*/ {{12,16,13,3,14},{"NEW FIRMWARE","NOUVEAU FIRMWARE","NEUE FIRMWARE","ITA","FIRMWARE NUEVA"}},
+/*str_DETECTED*/ {{10,9,12,3,11},{"  DETECTED","  DETECTE","FESTGESTELLT","ITA","  DETECTADO"}},
+/*str_PRESS_SELECT*/ {{12,19,15,3,17},{"PRESS SELECT","PRESSE SELECTIONNER","AUSWAHL DRÜCKEN","ITA","PRESIONAR ESCOGER"}},
+/*str_TO_REBOOT*/ {{11,17,14,3,11},{"  TO REBOOT","  POUR REDEMARRER","ZUM NEUSTARTEN","ITA","  REINICIAR"}},
+/*str_VALIDATING*/ {{12,12,11,3,11},{"  VALIDATING","  VALIDATION","ÜBERPRÜFUNG","ITA","  VALIDANDO"}},
+/*str_GRAPH_CUT_AT_PAUSE*/ {{18,3,20,3,24},{"GRAPH CUT AT PAUSE","FOO","GRAFIK UNVOLLSTÄNDIG","ITA","RECORTA GRAFICO EN PAUSA"}},
+/*str_ARE_YOU_SURE_YOU*/ {{16,13,14,3,15},{"ARE YOU SURE YOU","ETES VOUS SUR","BIST DU SICHER","ITA","ESTAS SEGURO DE"}},
+/*str_WANT_TO_DELETE*/ {{14,18,15,3,14},{"WANT TO DELETE","DE VOULOIR EFFACER","LÖSCHEN WILLST?","ITA","QUIERES BORRAR"}},
+/*str_WANT_TO_DISCARD*/ {{15,21,17,3,16},{"WANT TO DISCARD","DE VOULOIR ABANDONNER","VERWERFEN WILLST?","ITA","QUIERES DESECHAR"}},
+/*str_THIS_TEST?*/ {{10,8,11,3,11},{"THIS TEST?","CE TEST?","DIESEN TEST","ITA","ESTA PRUEBA"}},
+/*str_PROCESSING_DATA*/ {{15,22,17,3,16},{"PROCESSING DATA","TRAITEMENT DES DONNEES","DATENVERARBEITUNG","ITA","PROCESANDO DATOS"}},
+/*str_PLEASE_WAIT...*/ {{14,12,15,3,19},{"PLEASE WAIT...","ATTENDEZ SVP","BITTE WARTEN...","ITA","ESPERA POR FAVOR..."}},
+/*str_PLEASE_WAIT*/ {{11,8,12,3,16},{"PLEASE WAIT","ATTENDER","BITTE WARTEN","ITA","ESPERA POR FAVOR"}},
+/*str_WHILE_READING*/ {{13,27,20,3,16},{"WHILE READING","QUE LES DONNEES SOIENT LUES","WÄHREND GELESEN WIRD","ITA","MIENTRAS LEYENDO"}},
+/*str_THE_RECORD*/ {{10,9,16,3,9},{"THE RECORD","LE RECORD","DIE AUFZEICHNUNG","ITA","EL RECORD"}},
+/*str_READING_RECORD*/ {{14,19,23,3,15},{"READING RECORD","LECTURE DES RECORD ","LESEN DER AUFZEICHNUNG ","ITA","LEYENDO RECORD "}},
+/*str_LINK*/ {{4,4,10,3,8},{"LINK","LIER","VERLINKUNG","ITA","ENLAZAR "}},
+/*str_LINK_SNOW_PROFILE*/ {{17,24,23,3,23},{"LINK SNOW PROFILE","LIER LE PROFILE DE NEIGE","SCHNEEPROFIL VERLINKUNG","ITA","ENLAZAR PERFIL DE NIEVE"}},
+/*str_ENTER_PASSWORD*/ {{14,22,17,3,17},{"ENTER PASSWORD","ENTRER LE MOT DE PASSE","PASSWORT EINGEBEN","ITA","ENTRAR CONTRASENA"}},
+/*str_DAILY_TEST_LIMIT*/ {{16,14,14,3,17},{"DAILY TEST LIMIT","LIMITE DE 254 ","TAGESTESTLIMIT","ITA","LIMITE DE PRUEBAS"}},
+/*str_OF_254_REACHED!!!*/ {{17,25,19,3,16},{"OF 254 REACHED!!!","TESTS JOURNALIER ATTEINTE","VON 254 ERREICHT!!!","ITA","DE 254 ALCANZADO"}},
+/*str_FAVORITE_LIMIT_OF*/ {{17,12,19,3,19},{"FAVORITE LIMIT OF","LIMITE DE 64","FAVORITEN LIMIT VON","ITA","LIMITE DE FAVORITOS"}},
+/*str_64_REACHED!*/ {{11,25,12,3,12},{"64 REACHED!","TESTS JOURNALIER ATTEINTE","64 ERREICHT!","ITA","64 ALCANZADO"}},
+/*str_EDITING_DISABLED_*/ {{17,18,23,3,17},{"EDITING DISABLED ","EDITION DESACTIVEE","BEARBEITUNG DEAKTIVIERT","ITA","EDITACION APAGADO"}},
+/*str_DATE_AND_TIME*/ {{13,13,14,3,12},{"DATE AND TIME","DATE ET HEURE","DATUM UND ZEIT","ITA","FECHA Y HORA"}},
+/*str_BLUETOOTH*/ {{9,9,9,3,9},{"BLUETOOTH","BLUETOOTH","BLUETOOTH","ITA","BLUETOOTH"}},
+/*str_INITIALIZING_BLUETOOTH*/ {{22,24,25,3,19},{"INITIALIZING BLUETOOTH","INITIALISATION BLUETOOTH","INIZIALISIERUNG BLUETOOTH","ITA","INICIANDO BLUETOOTH"}},
+/*str_BACK_LIGHT*/ {{10,4,3,4,3},{"BACK LIGHT","poop","foo","poop","LUZ"}},
+/*str_GRAPH_DETAIL*/ {{12,13,13,3,15},{"GRAPH DETAIL","DETAIL GRAPHE","GRAFIK DETAIL","ITA","DETALLE GRAFICO"}},
+/*str_GRAPH_DETAIL_0*/ {{14,15,15,3,17},{"GRAPH DETAIL 0","DETAIL GRAPHE 0","GRAFIK DETAIL 0","ITA","DETALLE GRAFICO 0"}},
+/*str_GRAPH_DETAIL_1*/ {{14,15,15,3,17},{"GRAPH DETAIL 1","DETAIL GRAPHE 1","GRAFIK DETAIL 1","ITA","DETALLE GRAFICO 1"}},
+/*str_GRAPH_DETAIL_2*/ {{14,15,15,3,17},{"GRAPH DETAIL 2","DETAIL GRAPHE 2","GRAFIK DETAIL 2","ITA","DETALLE GRAFICO 2"}},
+/*str_GRAPH_DETAIL_3*/ {{14,15,15,3,17},{"GRAPH DETAIL 3","DETAIL GRAPHE 3","GRAFIK DETAIL 3","ITA","DETALLE GRAFICO 3"}},
+/*str_GRAPH_DETAIL_4*/ {{14,15,15,3,17},{"GRAPH DETAIL 4","DETAIL GRAPHE 4","GRAFIK DETAIL 4","ITA","DETALLE GRAFICO 4"}},
+/*str_LANGUAGE*/ {{8,6,7,3,6},{"LANGUAGE","LANGUE","SPRACHE","ITA","IDIOMA"}},
+/*str_REQUIRE_SLOPE*/ {{13,17,13,3,18},{"REQUIRE SLOPE","PENTE OBLIGATOIRE","BENÖTIGE HANG","ITA","EXIGIR INCLINACION"}},
+/*str_ABOUT_DEVICE*/ {{12,22,14,3,23},{"ABOUT DEVICE","A PROPOS DE L'APPAREIL","ÜBER DAS GERÄT","ITA","INFORMACION DEL APARATO"}},
+/*str_INITIALIZING*/ {{12,14,15,3,9},{"INITIALIZING","INITIALISATION","INIZIALISIERUNG","ITA","INICIANDO"}},
+/*str_THE_DEVICE_IS_NOW*/ {{17,37,17,3,16},{"THE DEVICE IS NOW","L'APPAREIL EST MAINTENANT DECOUVRABLE","DAS GERÄT IST NUN","ITA","EL APARATO ESTA "}},
+/*str_DISCOVERABLE.*/ {{13,3,18,3,10},{"DISCOVERABLE.","FOO","WIEDERHERSTELLBAR.","ITA","DETECTABLE"}},
+/*str_PLEASE_CONNECT*/ {{14,16,14,3,17},{"PLEASE CONNECT","CONNECTER VOTRE ","BITTE VERBINDE","ITA","FAVOR DE CONECTAR"}},
+/*str_YOUR_DEVICE*/ {{11,12,10,3,10},{"YOUR DEVICE","APPAREIL SVP","DEIN GERÄT","ITA","TU APARATO"}},
+/*str_CONNECTED*/ {{9,8,9,3,9},{"CONNECTED","CONNECTE","VERBUNDEN","ITA","CONECTADO"}},
+/*str_PREPARING_TO_SYNC*/ {{17,33,33,3,27},{"PREPARING TO SYNC","PREPARATION DE LA SYNCHRONISATION","VORBEREITUNG ZUR SYNCHRONISIERUNG","ITA","PREPARANDO PARA SINCRONIZAR"}},
+/*str_SYNCING*/ {{7,15,16,3,13},{"SYNCING","SYNCHRONISATION","SYNCHRONISIERUNG","ITA","SINCRONIZANDO"}},
+/*str_SYNC_COMPLETE!*/ {{14,25,31,3,13},{"SYNC COMPLETE!","SYNCHRONISATION COMPLETEE","SYNCHRONISIERUNG ABGESCHLOSSEN!","ITA","SINCRONIZADO!"}},
+/*str_SYNC_FAILED!*/ {{12,23,32,3,11},{"SYNC FAILED!","SYNCHRONISATION ECHOUEE","SYNCHRONISIERUNG FEHLGESCHLAGEN!","ITA","SYNC FALLO!"}},
+/*str_PLEASE_TRY_AGAIN*/ {{16,22,22,3,26},{"PLEASE TRY AGAIN","ESSAYER DE NOUVEAU SVP","BITTE ERNEUT VERSUCHEN","ITA","FAVOR DE INTENTAR OTRA VEZ"}},
+/*str_PLEASE_TURN*/ {{11,18,15,3,9},{"PLEASE TURN","ALLUMER BLUETOOTH ","BITTE AKTIVIERE","ITA","FAVOR DE "}},
+/*str_ON_BLUETOOTH*/ {{12,12,9,3,16},{"ON BLUETOOTH","POUR ENVOYER","BLUETOOTH","ITA","APAGAR BLUETOOTH"}},
+/*str_TO_SEND_THE_FILE*/ {{16,10,22,3,22},{"TO SEND THE FILE","LE FICHIER","UM DIE DATEN ZU SENDEN","ITA","PARA ENVIAR LA CARPETA"}},
+/*str_NO_TESTS_AVAILABLE*/ {{18,14,21,3,26},{"NO TESTS AVAILABLE","A SYNCHRONISER","KEINE TESTS VERFÜGBAR","ITA","NO HAY PRUEBAS DISPONIBLES"}},
+/*str_TO_SYNC!*/ {{8,11,21,3,17},{"TO SYNC!","AUCUN TEST ","ZUR SYNCHRONISIERUNG!","ITA","PARA SINCRONIZAR!"}},
+/*str_DATE*/ {{4,4,5,3,5},{"DATE","DATE","DATUM","ITA","FECHA"}},
+/*str_TIME_FORMAT*/ {{11,16,10,3,15},{"TIME FORMAT","FORMAT DE LHEURE","ZEITFORMAT","ITA","FORMATO HORARIO"}},
+/*str_TIME_ZONE*/ {{9,14,8,3,12},{"TIME ZONE","FUSEAU HORAIRE","ZEITZONE","ITA","ZONA HORARIA"}},
+/*str_TIME*/ {{4,5,4,3,4},{"TIME","HEURE","ZEIT","ITA","HORA"}},
+/*str_ZONE*/ {{4,6,4,3,4},{"ZONE","FUSEAU","ZONE","ITA","ZONA"}},
+/*str_DAYLIGHT*/ {{8,8,10,3,10},{"DAYLIGHT","L'HEURE ","WINTERZEIT","ITA","EL HORARIO"}},
+/*str_SAVINGS_TIME*/ {{12,5,11,3,10},{"SAVINGS TIME","D'ETE","SOMMERZEIT ","ITA","DE VERANO "}},
+/*str_ADELAIDE*/ {{8,8,8,8,8},{"ADELAIDE","ADELAIDE","ADELAIDE","ADELAIDE","ADELAIDE"}},
+/*str_ALMATY*/ {{6,6,6,6,6},{"ALMATY","ALMATY","ALMATY","ALMATY","ALMATY"}},
+/*str_AUCKLAND*/ {{8,8,8,8,8},{"AUCKLAND","AUCKLAND","AUCKLAND","AUCKLAND","AUCKLAND"}},
+/*str_BANGKOK*/ {{7,7,7,7,7},{"BANGKOK","BANGKOK","BANGKOK","BANGKOK","BANGKOK"}},
+/*str_BOMBAY*/ {{6,6,6,6,6},{"BOMBAY","BOMBAY","BOMBAY","BOMBAY","BOMBAY"}},
+/*str_BRASILIA*/ {{8,8,8,8,8},{"BRASILIA","BRASILIA","BRASILIA","BRASILIA","BRASILIA"}},
+/*str_BRISBANE*/ {{8,8,8,8,8},{"BRISBANE","BRISBANE","BRISBANE","BRISBANE","BRISBANE"}},
+/*str_CAIRO*/ {{5,5,5,5,5},{"CAIRO","CAIRO","CAIRO","CAIRO","CAIRO"}},
+/*str_CAPE_TOWN*/ {{9,9,9,9,9},{"CAPE TOWN","CAPE TOWN","CAPE TOWN","CAPE TOWN","CAPE TOWN"}},
+/*str_CAPE_VERDE*/ {{10,10,10,10,10},{"CAPE VERDE","CAPE VERDE","CAPE VERDE","CAPE VERDE","CAPE VERDE"}},
+/*str_CHITA*/ {{5,5,5,5,5},{"CHITA","CHITA","CHITA","CHITA","CHITA"}},
+/*str_DARWIN*/ {{6,6,6,6,6},{"DARWIN","DARWIN","DARWIN","DARWIN","DARWIN"}},
+/*str_EKATERINBURG*/ {{12,12,12,12,12},{"EKATERINBURG","EKATERINBURG","EKATERINBURG","EKATERINBURG","EKATERINBURG"}},
+/*str_EU-CENTRAL*/ {{10,10,10,10,10},{"EU-CENTRAL","EU-CENTRAL","EU-CENTRAL","EU-CENTRAL","EU-CENTRAL"}},
+/*str_EU-EASTERN*/ {{10,10,10,10,10},{"EU-EASTERN","EU-EASTERN","EU-EASTERN","EU-EASTERN","EU-EASTERN"}},
+/*str_EU-WESTERN*/ {{10,10,10,10,10},{"EU-WESTERN","EU-WESTERN","EU-WESTERN","EU-WESTERN","EU-WESTERN"}},
+/*str_FIJI*/ {{4,4,4,4,4},{"FIJI","FIJI","FIJI","FIJI","FIJI"}},
+/*str_HONG_KONG*/ {{9,9,9,9,9},{"HONG KONG","HONG KONG","HONG KONG","HONG KONG","HONG KONG"}},
+/*str_ICELAND*/ {{7,7,7,7,7},{"ICELAND","ICELAND","ICELAND","ICELAND","ICELAND"}},
+/*str_ISLAMABAD*/ {{9,9,9,9,9},{"ISLAMABAD","ISLAMABAD","ISLAMABAD","ISLAMABAD","ISLAMABAD"}},
+/*str_JAKARTA*/ {{7,7,7,7,7},{"JAKARTA","JAKARTA","JAKARTA","JAKARTA","JAKARTA"}},
+/*str_KABUL*/ {{5,5,5,5,5},{"KABUL","KABUL","KABUL","KABUL","KABUL"}},
+/*str_KALININGRAD*/ {{11,11,11,11,11},{"KALININGRAD","KALININGRAD","KALININGRAD","KALININGRAD","KALININGRAD"}},
+/*str_KATHMANDU*/ {{9,9,9,9,9},{"KATHMANDU","KATHMANDU","KATHMANDU","KATHMANDU","KATHMANDU"}},
+/*str_KRASNOYARSK*/ {{11,11,11,11,11},{"KRASNOYARSK","KRASNOYARSK","KRASNOYARSK","KRASNOYARSK","KRASNOYARSK"}},
+/*str_LAGOS*/ {{5,5,5,5,5},{"LAGOS","LAGOS","LAGOS","LAGOS","LAGOS"}},
+/*str_MAGADAN*/ {{7,7,7,7,7},{"MAGADAN","MAGADAN","MAGADAN","MAGADAN","MAGADAN"}},
+/*str_MEX-CENTRAL*/ {{11,11,11,11,11},{"MEX-CENTRAL","MEX-CENTRAL","MEX-CENTRAL","MEX-CENTRAL","MEX-CENTRAL"}},
+/*str_MEX-MOUNTAIN*/ {{12,12,12,12,12},{"MEX-MOUNTAIN","MEX-MOUNTAIN","MEX-MOUNTAIN","MEX-MOUNTAIN","MEX-MOUNTAIN"}},
+/*str_MEX-PACIFIC*/ {{11,11,11,11,11},{"MEX-PACIFIC","MEX-PACIFIC","MEX-PACIFIC","MEX-PACIFIC","MEX-PACIFIC"}},
+/*str_MOSCOW*/ {{6,6,6,6,6},{"MOSCOW","MOSCOW","MOSCOW","MOSCOW","MOSCOW"}},
+/*str_MUSCAT*/ {{6,6,6,6,6},{"MUSCAT","MUSCAT","MUSCAT","MUSCAT","MUSCAT"}},
+/*str_NEWFOUNDLAND*/ {{12,12,12,12,12},{"NEWFOUNDLAND","NEWFOUNDLAND","NEWFOUNDLAND","NEWFOUNDLAND","NEWFOUNDLAND"}},
+/*str_NOVOSIBIRSK*/ {{11,11,11,11,11},{"NOVOSIBIRSK","NOVOSIBIRSK","NOVOSIBIRSK","NOVOSIBIRSK","NOVOSIBIRSK"}},
+/*str_PERTH*/ {{5,5,5,5,5},{"PERTH","PERTH","PERTH","PERTH","PERTH"}},
+/*str_PETROPAVLOVSK*/ {{13,13,13,13,13},{"PETROPAVLOVSK","PETROPAVLOVSK","PETROPAVLOVSK","PETROPAVLOVSK","PETROPAVLOVSK"}},
+/*str_RIYADH*/ {{6,6,6,6,6},{"RIYADH","RIYADH","RIYADH","RIYADH","RIYADH"}},
+/*str_SAMARA*/ {{6,6,6,6,6},{"SAMARA","SAMARA","SAMARA","SAMARA","SAMARA"}},
+/*str_SAMOA*/ {{5,5,5,5,5},{"SAMOA","SAMOA","SAMOA","SAMOA","SAMOA"}},
+/*str_SYDNEY*/ {{6,6,6,6,6},{"SYDNEY","SYDNEY","SYDNEY","SYDNEY","SYDNEY"}},
+/*str_TASMANIA*/ {{8,8,8,8,8},{"TASMANIA","TASMANIA","TASMANIA","TASMANIA","TASMANIA"}},
+/*str_TEHRAN*/ {{6,6,6,6,6},{"TEHRAN","TEHRAN","TEHRAN","TEHRAN","TEHRAN"}},
+/*str_TOKYO*/ {{5,5,5,5,5},{"TOKYO","TOKYO","TOKYO","TOKYO","TOKYO"}},
+/*str_US-ALASKA*/ {{9,9,9,9,9},{"US-ALASKA","US-ALASKA","US-ALASKA","US-ALASKA","US-ALASKA"}},
+/*str_US-ARIZONA*/ {{10,10,10,10,10},{"US-ARIZONA","US-ARIZONA","US-ARIZONA","US-ARIZONA","US-ARIZONA"}},
+/*str_US-ATLANTIC*/ {{11,11,11,11,11},{"US-ATLANTIC","US-ATLANTIC","US-ATLANTIC","US-ATLANTIC","US-ATLANTIC"}},
+/*str_US-CENTRAL*/ {{10,10,10,10,10},{"US-CENTRAL","US-CENTRAL","US-CENTRAL","US-CENTRAL","US-CENTRAL"}},
+/*str_US-EASTERN*/ {{10,10,10,10,10},{"US-EASTERN","US-EASTERN","US-EASTERN","US-EASTERN","US-EASTERN"}},
+/*str_US-HAWAII*/ {{9,9,9,9,9},{"US-HAWAII","US-HAWAII","US-HAWAII","US-HAWAII","US-HAWAII"}},
+/*str_US-MOUNTAIN*/ {{11,11,11,11,11},{"US-MOUNTAIN","US-MOUNTAIN","US-MOUNTAIN","US-MOUNTAIN","US-MOUNTAIN"}},
+/*str_US-PACIFIC*/ {{10,10,10,10,10},{"US-PACIFIC","US-PACIFIC","US-PACIFIC","US-PACIFIC","US PACIFIC"}},
+/*str_VLADIVOSTOK*/ {{11,11,11,11,11},{"VLADIVOSTOK","VLADIVOSTOK","VLADIVOSTOK","VLADIVOSTOK","VLADIVOSTOK"}},
+/*str_WINDHOEK*/ {{8,8,8,8,8},{"WINDHOEK","WINDHOEK","WINDHOEK","WINDHOEK","WINDHOEK"}},
+/*str_SENSOR_OUTPUT*/ {{13,17,20,3,21},{"SENSOR OUTPUT","SORTIE DU CAPTEUR","ERGEBNIS DES SENSORS","ITA","PRODUCCION DEL SENSOR"}},
+/*str_PRESSURE*/ {{9,8,5,3,8},{"PRESSURE:","PRESSION","DRUCK","ITA","PRESION:"}},
+/*str_DEPTH*/ {{6,10,5,3,5},{"DEPTH:","PROFONDEUR","TIEFE","ITA","ANCHO"}},
+/*str_EYE*/ {{4,4,4,3,4},{"EYE:","OEIL","AUGE","ITA","OJO "}},
+/*str_ROS_1*/ {{6,6,5,6,6},{"ROS 1:","ROS 1:","ROS 1","ROS 1:","ROS 1:"}},
+/*str_ROS_2*/ {{6,6,5,6,6},{"ROS 2:","ROS 2:","ROS 2","ROS 2:","ROS 2:"}},
+/*str_TILT*/ {{4,11,7,3,11},{"TILT","INCLINAISON","NEIGUNG","ITA","INCLINACION"}}
 }; // end string_array[]
 
 
