@@ -7,7 +7,7 @@ no warnings 'uninitialized';
 use Data::Dumper;
 use Tie::File;
 
-(my $csvfile) = "SP2_STRINGS_V4.csv";      # get file names from command line
+(my $csvfile) = "copy.csv";      # get file names from command line
 my $headerfile = "sp2_string.h";
 
 my @langs; # array holding languages (hash keys) 
@@ -25,7 +25,6 @@ while ( <$fh_csv> ) # parse file line by line
     {
         @langs=@fields[1 .. $#fields]; # ignore first column 
         my $numlangs=$#langs;
-        print "@langs";
     }
     elsif (($. != 1) and ($#fields+1 == 6))  # if not first line and store each comma-separated string in correct language hash
     {
@@ -42,15 +41,10 @@ while ( <$fh_csv> ) # parse file line by line
     }
 }
 close $fh_csv or die "couldn't close '$csvfile' : $!"; #close file
-#print Dumper(\%langHash); 
 
-
-#open (my $fh_tempfile, '>', $tempfile) or die "Couldn't create '$tempfile': $!"; # open temporary file for writing
-
-
-# print header 
-print "\nReplacing strings in $headerfile.\n";
-
+#
+# Rewrite string variable names in header
+#
 open (my $fh_header, '<', $headerfile) or die "Couldn't read '$headerfile': $!"; # open header file for reading
 my ($startlinenum, $endlinenum, $numstringlines) = 0; # start and end line number for screen replacement 
 while ( <$fh_header> )  # parse read-only file line by line
@@ -67,46 +61,67 @@ close $fh_header, $headerfile or die "Couldn't close '$headerfile': $!";
 # replace string variable names in header with those from CSV 
 tie my @flines, 'Tie::File', $headerfile or die "error using Tie to read file <$headerfile>";  
 #$endlinenum -= 2; 
-print "Replaced lines : ($startlinenum)$flines[$startlinenum] --> ($endlinenum)$flines[$endlinenum]\n";
-
+#
+# replace string labels in structure with csv values
 my @sub_strs = map{"    $_" . ","} @str_names; 
-print @flines[$startlinenum .. $endlinenum-1];
-#splice(@flines,$startlinenum,($endlinenum-$startlinenum), @sub_strs);
+splice(@flines,$startlinenum,($endlinenum-$startlinenum-1), @sub_strs); 
 untie @flines;  
 
+#
+# rewrite all fields in language string structure declaration
+#
+open ($fh_header, '<', $headerfile) or die "Couldn't read '$headerfile': $!"; # open header file for reading
 
-
-
-sub loadFromCSV {
-    open (my $fh_csv,'<', $csvfile) or die "Couldn't read '$csvfile': $!"; # open csv file for reading
-    while ( <$fh_csv> ) # parse file line by line
-    {
-        # split $_ by commas
-        my @fields = split /,/;
-
-        # Each field of 1st line are stored as langs
-        if ($. == 1) 
-        {
-            @langs=@fields[1 .. $#fields]; # ignore first column 
-            my $numlangs=$#langs;
-            print "@langs";
-        }
-        elsif (($. != 1) and ($#fields+1 == 6))  # if not first line and store each comma-separated string in correct language hash
-        {
-            push(@str_names, $fields[0]); # push string variable names onto array
-            my @curr_strs = @fields[1 .. $#fields]; # store language strings in current string array
-        
-            # store each string in appropriate language hash array 
-            my $i=0; 
-            foreach my $string (@curr_strs) 
-            {
-                chomp $string; # remove possible trailing newline 
-                    ${ $langHash{$langs[$i++]} }{ $fields[0] } = $string; 
-            }
-        }
-    }
-    close $fh_csv or die "couldn't close '$csvfile' : $!"; #close file
+while (<$fh_header>)
+{
+    # get start of structure declaration
+    /static const sp2_string_struct_t string_array\[NUM_STRINGS\]/ and $startlinenum=$.+2; 
+    
+    /static const sp2_string_struct_t string_array\[NUM_STRINGS\]/ .. /end string_array\[\]/ and $numstringlines++ and $endlinenum=$.; 
 }
+close $fh_header, $headerfile or die "Couldn't close '$headerfile': $!";
+
+# replace string variable names in header with those from CSV 
+tie @flines, 'Tie::File', $headerfile or die "error using Tie to read file <$headerfile>";  
+
+# create array with all languages in order 
+my (@ordered_strs);
+my %lenHash;
+foreach my $str_name ( @str_names )
+{
+    # loop through hash structure and add each string's translation in order 
+    foreach my $lang (@langs)
+    {
+        push( @ordered_strs, ${$langHash{$lang}}{ $str_name });
+        ${$lenHash{$lang}}{$str_name} = length ${$langHash{$lang}}{$str_name};  # add each string's length tho length hash
+    }
+}
+
+#print join("\n",@flines[$startlinenum .. $endlinenum]); 
+#print join("\n",@ordered_strs); 
+
+# create new definition content
+#splice(@flines,$startlinenum,($endlinenum-$startlinenum-1), @sub_strs);
+
+my @newlines;
+my (@templen, @tempstr);
+my ($lens,$strs);
+
+foreach my $str_name (@str_names)
+{
+    push (@newlines, "/*" . $str_name . "*/") and print "$newlines[-1]\n\t";
+    foreach my $lang (@langs)
+    {
+        push (@tempstr, "\"" . ${$langHash{$lang}}{$str_name} . "\""); #holds each translated string
+        push (@templen, length ${$langHash{$lang}}{$str_name}); #holds lengths
+    } 
+    $lens = "{" . join(",",@templen) . "}" and print "$lens\n\t" and @templen= (); # create length array field
+    $strs = "{" . join(",",@tempstr) . "}" and print "$strs\n\t" and @tempstr= (); # create length array field
+}
+
+
+
+untie @flines;
 
 =begin GHOSTCODE
     # if line falls within language struct declaration
