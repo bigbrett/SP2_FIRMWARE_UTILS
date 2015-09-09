@@ -117,9 +117,10 @@ foreach my $str_name (@str_names)
     } 
     $lens = "{" . join(",",@templen) . "}" and @templen= (); # create length array field
     $strs = "{" . join(",",@tempstr) . "}" and @tempstr= (); # create length array field
-    $currline = $commentlabel . " \{" . $lens . "," . $strs . "\}\n" and print "$currline\n"
-    
+    $currline = $commentlabel . " \{" . $lens . "," . $strs . "\}" and push(@newlines,$currline);
+     
 }
+print join (",\n",@newlines); 
 
 
 
