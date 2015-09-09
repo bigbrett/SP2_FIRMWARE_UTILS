@@ -64,9 +64,10 @@ use Data::Dumper;
 use Tie::File;
 use File::Copy; 
 
+our ($convert); # Command line switch 
+
 # Get file names from command line
-my $csvfile = "copy.csv";      
-my $headerfile = "sp2_string.h";
+(my $csvfile, my $headerfile) = @ARGV;      
 my $backupfile= "$headerfile.bak"; 
 
 # Global variables
@@ -74,8 +75,23 @@ my %langHash; # hash table holding language arrays, indexed by elements of @lang
 my @langs; # array holding languages (hash keys to %langHash) 
 my @str_names; # array holding string labels (hash keys to %{ $langHash{$lang} })
 
+# If running linux or mac, get rid of DOS-style line endings with BASH system call to dos2unix program
+print "OS = $^O\n\n"; # Print operating system 
+if (! $convert) {
+    warn "WARNING: File may contain MS-DOS line endings, which could cause unwanted CRLF metacharacters to be inserted into strings (or other formatting issues).\nTo ensure line endings are *NIX compatible, use command-line option [ -convert ] with this script to strip DOS CRLF characters using dos2unix program'\n\n";
+    print "Would you like to convert to *NIX line endings (y/n) ? >>  ";
+    my $uin = <STDIN>; 
+    ($uin =~ /^[yY]/) and $convert=1;
+}
+if ($convert) {
+	system('command -v dos2unix >/dev/null 2>&1 || { echo >&2 "I require dos2unix but it\'s not installed.  Aborting."; exit 1; }') == 0 
+			or die "FATAL ERROR: missing program: dos2unix\n\tdos2unix can be downloaded at http://sourceforge.net/projects/dos2unix or can be installed via your OS's native package manager (apt-get, cyg-apt, homebrew, etc. ). "; 
+	system("dos2unix $headerfile $csvfile");    # get rid of DOS-style line endings with BASH system call to dos2unix program
+}
+
 # Create backup of original header file with .orig extension
 copy($headerfile,$backupfile) or die "Failed to create backup file: $!\n"; 
+
 
 
 # --------------------------------------------------------------------------------
@@ -175,5 +191,6 @@ untie @flines;
 
 
 
-END { print "\n\n$headerfile updated successfully!\n\n";} 
+print "\n\n$headerfile updated successfully!\n"; 
+END { print "\n";}
 
