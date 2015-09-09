@@ -103,20 +103,22 @@ foreach my $str_name ( @str_names )
 # create new definition content
 #splice(@flines,$startlinenum,($endlinenum-$startlinenum-1), @sub_strs);
 
-my @newlines;
+my @newlines; 
 my (@templen, @tempstr);
-my ($lens,$strs);
+my ($commentlabel,$lens,$strs,$currline);
 
 foreach my $str_name (@str_names)
 {
-    push (@newlines, "/*" . $str_name . "*/") and print "$newlines[-1]\n\t";
+    $commentlabel = "/*" . $str_name . "*/"; # start each line with a commented string name 
     foreach my $lang (@langs)
     {
         push (@tempstr, "\"" . ${$langHash{$lang}}{$str_name} . "\""); #holds each translated string
         push (@templen, length ${$langHash{$lang}}{$str_name}); #holds lengths
     } 
-    $lens = "{" . join(",",@templen) . "}" and print "$lens\n\t" and @templen= (); # create length array field
-    $strs = "{" . join(",",@tempstr) . "}" and print "$strs\n\t" and @tempstr= (); # create length array field
+    $lens = "{" . join(",",@templen) . "}" and @templen= (); # create length array field
+    $strs = "{" . join(",",@tempstr) . "}" and @tempstr= (); # create length array field
+    $currline = $commentlabel . " \{" . $lens . "," . $strs . "\}\n" and print "$currline\n"
+    
 }
 
 
